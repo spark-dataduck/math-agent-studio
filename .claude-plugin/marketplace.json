@@ -1,0 +1,30 @@
+{
+  "name": "Math Agent Studio Marketplace",
+  "version": "1.0.0",
+  "description": "Marketplace for math textbook processing plugins",
+  "plugins": [
+    {
+      "name": "math-agent-studio",
+      "displayName": "Math Agent Studio",
+      "description": "Transform math textbook chapter PDFs into 5 comprehensive study materials: notes, problems, answers, explanations, and YouTube scripts",
+      "version": "1.0.0",
+      "author": {
+        "name": "Sundoo Park"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/spark-dataduck/math-agent-studio"
+      },
+      "keywords": [
+        "mathematics",
+        "education",
+        "pdf-processing",
+        "textbook",
+        "study-materials",
+        "korean",
+        "youtube"
+      ],
+      "pluginPath": "."
+    }
+  ]
+}
