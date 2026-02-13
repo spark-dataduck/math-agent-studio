@@ -122,7 +122,80 @@ The skill automatically saves progress and can resume from any step.
 
 ## 🏗️ Architecture
 
-### Component Overview
+### 3-Tier Architecture
+
+**Math Agent Studio** uses a 3-tier architecture that separates concerns:
+
+1. **Skill** = User-facing API (entry point, validation, UX)
+2. **Orchestrator Agent** = Workflow coordinator (state management, sequencing)
+3. **Generator Agents** = Content creators (specialized workers)
+
+This separation allows the skill to focus on user experience while agents focus on execution logic.
+
+### Complete Hierarchy
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ SKILL: process-textbook                                 │
+│ (User-facing entry point)                               │
+│                                                         │
+│ Responsibilities:                                       │
+│ • Parse user input (/process-textbook [path])          │
+│ • Validate PDF exists and is readable                  │
+│ • Handle user confirmations                            │
+│ • Display progress messages to user                    │
+│ • Handle resumption logic                              │
+│ • Show final summary                                   │
+└─────────────────────────────────────────────────────────┘
+                           │
+                           │ invokes via Task tool
+                           ▼
+┌─────────────────────────────────────────────────────────┐
+│ AGENT: workflow-orchestrator                            │
+│ (Workflow coordinator - "the foreman")                  │
+│                                                         │
+│ Responsibilities:                                       │
+│ • Manage workflow state (.local.md)                    │
+│ • Execute 5 steps sequentially                         │
+│ • Handle errors and retries                            │
+│ • Validate outputs between steps                       │
+│ • Track dependencies (Step 2b needs Step 2a done)      │
+└─────────────────────────────────────────────────────────┘
+                           │
+                           │ spawns via Task tool
+                           ▼
+┌─────────────────────────────────────────────────────────┐
+│ AGENTS: 5 Generator Agents                              │
+│ (Content creators - "the workers")                      │
+│                                                         │
+│ ├─ notes-generator                                     │
+│ ├─ script-generator                                    │
+│ ├─ problems-generator                                  │
+│ ├─ answers-generator                                   │
+│ └─ explanations-generator                              │
+│                                                         │
+│ Responsibilities:                                       │
+│ • Read input files (source PDF, previous outputs)      │
+│ • Apply Korean prompt templates                        │
+│ • Generate formatted PDF output                        │
+│ • Validate output quality                              │
+│ • Return output path to orchestrator                   │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Skill vs Agent: Key Differences
+
+| Aspect | Skill | Agent |
+|--------|-------|-------|
+| **Invoked by** | User (via `/process-textbook`) | Another agent (via Task tool) or skill |
+| **Has access to user** | Yes - can prompt user for input | No - receives inputs from invoker |
+| **Purpose** | User experience & validation | Execution logic |
+| **Tools** | Not explicitly defined (inherits context) | Explicitly defined in YAML frontmatter |
+| **Location** | `skills/process-textbook/SKILL.md` | `agents/*.md` |
+| **Can spawn agents?** | Yes (can use Task tool) | Only orchestrator can (others don't have Task tool) |
+| **Registered in** | `.claude-plugin/plugin.json` → `skills` | `.claude-plugin/plugin.json` → `agents` |
+
+### Component Overview (Legacy View)
 
 ```
 User → SKILL (entry point)
