@@ -171,11 +171,47 @@ Each step has 3 retry attempts with exponential backoff:
 
 ## Plugin Configuration
 
-`.claude-plugin/plugin.json` registers:
-- 1 skill: `process-textbook`
-- 6 agents: `workflow-orchestrator` + 5 generators
+### plugin.json (metadata only)
 
-**Minimum Claude Code Version**: 2.1.0
+`.claude-plugin/plugin.json` contains **only metadata**: name, version, description, author, repository, keywords.
+
+**Skills and agents are NOT declared in plugin.json** - they are auto-discovered from the `skills/` and `agents/` directories.
+
+**Common plugin.json mistakes** (will cause install validation errors):
+- `repository` must be a plain string URL, NOT an object like `{"type": "git", "url": "..."}`
+- Do NOT include `skills` or `agents` arrays
+- Do NOT include a `claudeCode` key (unrecognized)
+
+### marketplace.json (for distribution)
+
+`.claude-plugin/marketplace.json` is required for marketplace distribution (when users install via `/plugin` → Add Marketplace).
+
+**Schema** (based on official Notion plugin pattern):
+```json
+{
+  "name": "kebab-case-marketplace-name",
+  "owner": { "name": "Owner Name" },
+  "plugins": [
+    {
+      "name": "plugin-name",
+      "description": "...",
+      "source": { "source": "github", "repo": "owner/repo" }
+    }
+  ]
+}
+```
+
+**Key rules**:
+- `name` must be kebab-case (no spaces)
+- `owner` is required (object with `name`)
+- Each plugin needs a `source` object with `"source": "github"` and `"repo": "owner/repo"`
+- `$schema` field is optional (the URL returns 404 anyway)
+
+**Reference examples**:
+- Notion plugin: `~/.claude/plugins/cache/claude-plugins-official/Notion/0.1.0/`
+- Anthropic official: `https://github.com/anthropics/claude-code/blob/main/.claude-plugin/marketplace.json`
+
+**Repository**: This plugin is published under `spark-dataduck` org (not `sundoopark` personal account).
 
 ## Development Workflow
 
@@ -184,11 +220,10 @@ Each step has 3 retry attempts with exponential backoff:
 To add a 6th output (e.g., flashcards):
 
 1. Create Korean prompt in `skills/process-textbook/references/prompts.md`
-2. Create agent file: `agents/flashcards-generator.md`
-3. Register in `.claude-plugin/plugin.json` under `"agents"`
-4. Update `workflow-orchestrator.md` to include new step
-5. Update `SKILL.md` execution order
-6. Update README.md to document new output
+2. Create agent file: `agents/flashcards-generator.md` (auto-discovered, no registration needed)
+3. Update `workflow-orchestrator.md` to include new step
+4. Update `SKILL.md` execution order
+5. Update README.md to document new output
 
 ### Modifying Output Content
 
@@ -296,7 +331,8 @@ These are NOT regular markdown docs - they're executable agent definitions.
 ```
 math-agent-studio/
 ├── .claude-plugin/
-│   └── plugin.json           # Plugin manifest (skills + agents)
+│   ├── plugin.json           # Plugin metadata (name, version, author)
+│   └── marketplace.json      # Marketplace distribution config
 ├── skills/
 │   └── process-textbook/
 │       ├── SKILL.md          # Entry point (user-invocable)
