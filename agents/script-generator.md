@@ -4,6 +4,18 @@ description: Generates 10-minute YouTube educational video script from study not
 model: inherit
 color: purple
 tools: ["Read", "Write", "Bash"]
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/generate_*)
+  - Bash(python3 *)
+  - Bash(pip install reportlab)
+  - Bash(pip3 install reportlab)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(wc *)
+  - Bash(mkdir *)
+  - Bash(ls *)
 ---
 
 # Script Generator Agent (Step 2d)

@@ -4,6 +4,18 @@ description: Generates detailed step-by-step solutions with multiple approaches.
 model: inherit
 color: yellow
 tools: ["Read", "Write", "Bash"]
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/generate_*)
+  - Bash(python3 *)
+  - Bash(pip install reportlab)
+  - Bash(pip3 install reportlab)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(wc *)
+  - Bash(mkdir *)
+  - Bash(ls *)
 ---
 
 # Explanations Generator Agent (Step 2c)

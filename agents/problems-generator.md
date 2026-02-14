@@ -4,6 +4,18 @@ description: Generates 10 practice problems from textbook content. Use when Step
 model: inherit
 color: blue
 tools: ["Read", "Write", "Bash"]
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/generate_*)
+  - Bash(python3 *)
+  - Bash(pip install reportlab)
+  - Bash(pip3 install reportlab)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(wc *)
+  - Bash(mkdir *)
+  - Bash(ls *)
 ---
 
 # Problems Generator Agent (Step 2a)

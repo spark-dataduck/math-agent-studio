@@ -30,7 +30,7 @@ python3 scripts/validate_pdf.py "path/to/file.pdf"
 python3 scripts/generate_output_path.py "Notes" "reference_source/chapter.pdf"
 ```
 
-**Important**: All Python scripts use **only standard library** (pathlib, sys, os). No external dependencies.
+**Important**: `validate_pdf.py` and `generate_output_path.py` use only standard library. `generate_pdf.py` requires **Playwright** (auto-installed on first run via `pip install playwright && playwright install chromium`).
 
 ## Architecture & Workflow
 
@@ -143,7 +143,7 @@ Each generator agent is a specialized Task that:
 4. Returns output path to orchestrator
 
 **Agent Files**:
-- `agents/notes-generator.md` - Comprehensive notes (8-11 pages, THE BIG IDEA, mnemonics, examples)
+- `agents/notes-generator.md` - Comprehensive notes (8-11 pages: HTML→Playwright PDF pipeline with KaTeX math, pastel boxes via CSS classes)
 - `agents/script-generator.md` - 10-minute YouTube script (conversational English, "Just Watch Math" style)
 - `agents/problems-generator.md` - 10 problems (6 standard + 4 Putnam-level)
 - `agents/answers-generator.md` - Compact answer key (1-page table)
@@ -254,7 +254,7 @@ Compare outputs with existing files in `reference_outputs/` to verify quality.
 - **Total**: 15-25 minutes per chapter
 
 **File Sizes**:
-- Notes: 1-2 MB (8-11 pages)
+- Notes: 200-600 KB (8-11 pages, HTML→Playwright pipeline)
 - Script: 400-600 KB (6 pages)
 - Problems: 300-500 KB (4-6 pages)
 - Quick Answers: 150-200 KB (1 page)
@@ -309,6 +309,7 @@ Before marking a step complete, verify:
 **Utilities**:
 6. `scripts/validate_pdf.py` - PDF validation
 7. `scripts/generate_output_path.py` - Path generation
+8. `scripts/generate_pdf.py` - HTML→PDF via Playwright (with KaTeX math rendering)
 
 ### Making Changes Safely
 
@@ -335,6 +336,9 @@ math-agent-studio/
 ├── skills/
 │   └── process-textbook/
 │       ├── SKILL.md          # Entry point (user-invocable)
+│       ├── assets/
+│       │   ├── notes-base.css    # CSS classes for notes HTML
+│       │   └── katex/            # Bundled KaTeX (CSS + JS + fonts)
 │       └── references/
 │           ├── prompts.md    # AI prompts ⭐
 │           ├── output-formats.md
@@ -348,7 +352,8 @@ math-agent-studio/
 │   └── explanations-generator.md
 ├── scripts/
 │   ├── validate_pdf.py       # Validation utility
-│   └── generate_output_path.py
+│   ├── generate_output_path.py
+│   └── generate_pdf.py       # HTML→PDF via Playwright
 ├── reference_source/         # Example input PDFs
 └── reference_outputs/        # Example output PDFs (for testing)
 ```

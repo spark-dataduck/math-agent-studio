@@ -4,6 +4,14 @@ description: Orchestrates the math textbook processing workflow. Use when the pr
 model: inherit
 color: blue
 tools: ["Read", "Write", "Bash", "Task", "TaskCreate", "TaskUpdate", "TaskList"]
+allowed-tools:
+  - Read
+  - Write
+  - Bash(python3 scripts/*)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(ls *)
+  - Bash(mkdir *)
 ---
 
 # Workflow Orchestrator Agent

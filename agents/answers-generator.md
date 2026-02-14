@@ -4,6 +4,18 @@ description: Generates quick answer key in compact table format. Use when Step 2
 model: inherit
 color: cyan
 tools: ["Read", "Write", "Bash"]
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/generate_*)
+  - Bash(python3 *)
+  - Bash(pip install reportlab)
+  - Bash(pip3 install reportlab)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(wc *)
+  - Bash(mkdir *)
+  - Bash(ls *)
 ---
 
 # Answers Generator Agent (Step 2b)

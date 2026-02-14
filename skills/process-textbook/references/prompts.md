@@ -27,12 +27,22 @@ Mention common mistakes and confusing points that students frequently get wrong 
 - Common Traps (red warning): Frequently made mistakes
 - Useful Tips (orange box): Helpful tips for problem-solving
 - "Try These" examples: 3-4 practice problems per concept
+- Practice Problems: Exam Level (final 2 pages)
+  - Section A: Standard Exam Problems (6 problems, progressive difficulty)
+  - Section B: Competition-Style Problems 🏆 (4-5 problems)
+    - Diverse types: Knights & Knaves, Liar Puzzles, Number Theory, Chain Arguments, AMC-style
+  - Problems test ALL concepts from the notes
+  - Header: "Work through each problem, then check the Answer Key at the end."
 
 **Format Guide:**
 - 8-11 pages
-- Color coding (navy = core concepts, red = warnings, orange = tips)
+- Page 1: Title page (dedicated full page, no content boxes)
+- Pages 2-9: Concepts with inline Try These
+- Pages 10-11: Practice Problems: Exam Level
+- Color coding: pastel tints with accent-color borders (navy = core concepts, red = warnings, orange = tips)
 - Use tables and diagrams extensively
 - Notation must be clear and precise
+- Generous whitespace — allow partially-empty pages, do NOT cram content
 ```
 
 ### Expected Output Structure:
@@ -40,36 +50,35 @@ Mention common mistakes and confusing points that students frequently get wrong 
 ```
 [Notes] Chapter Title.pdf
 
-Page 1: THE BIG IDEA (navy box)
-  - Core concept overview
-  - Why this matters
-  - Key vocabulary
+Page 1: TITLE PAGE (dedicated, full page)
+  - Book title (large, centered)
+  - "Chapter N [Topic]"
+  - Author name
+  - Horizontal rule
+  - "Section X.X: [Section Title]"
+  - "Core Concepts • Mnemonics • Inline Examples • Competition Problems"
+  - NO content boxes on this page
 
-Page 2-3: Concept 1
+Pages 2-3: Concept 1
+  - THE BIG IDEA (pastel navy box)
   - Definition (table format)
   - Visual mnemonic
-  - Examples (2-3)
-  - Try These (3-4 problems)
+  - Key properties with examples
+  - Common Trap (pastel pink box)
+  - Useful Tip (pastel orange box)
+  - Try These (3-4 problems with solutions)
 
-Page 4-5: Concept 2
-  - Common Trap (red warning box)
-  - Useful Tip (orange box)
-  - Worked examples
-  - Try These
+Pages 4-5: Concept 2
+  - Same structure as Concept 1
+  - Additional concepts as needed
 
-Page 6-8: Advanced Concepts
-  - Building on basics
-  - Edge cases
-  - Complex examples
+Pages 6-9: Additional Concepts
+  - Continue same inline structure
+  - Allow partial empty pages — prioritize readability over density
 
-Page 9-10: Review Section
-  - Summary table
-  - Key formulas
-  - Common mistakes recap
-
-Page 11: Quick Reference
-  - Formula sheet
-  - Checklist
+Pages 10-11: Practice Problems: Exam Level
+  - Section A: Standard Exam Problems (6 problems)
+  - Section B: Competition-Style Problems 🏆 (4-5 problems)
 ```
 
 ---

@@ -7,6 +7,19 @@ trigger_phrases:
   - "generate study materials"
   - "process textbook chapter"
 version: 1.0.0
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/generate_*)
+  - Bash(python3 scripts/*)
+  - Bash(python3 /tmp/generate_*)
+  - Bash(pip install reportlab)
+  - Bash(pip3 install reportlab)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(wc *)
+  - Bash(mkdir *)
+  - Bash(ls *)
 ---
 
 # Process Math Textbook Skill

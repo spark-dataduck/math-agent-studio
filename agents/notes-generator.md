@@ -4,6 +4,18 @@ description: Generates comprehensive study notes from math textbook PDFs. Use wh
 model: opus
 color: green
 tools: ["Read", "Write", "Bash"]
+allowed-tools:
+  - Read
+  - Write(reference_outputs/**)
+  - Write(/tmp/math-agent-studio-*)
+  - Bash(python3 scripts/generate_pdf.py *)
+  - Bash(python3 scripts/generate_output_path.py *)
+  - Bash(pip install playwright)
+  - Bash(playwright install chromium)
+  - Bash(stat *)
+  - Bash(file *)
+  - Bash(ls *)
+  - Bash(mkdir *)
 ---
 
 # Notes Generator Agent (Step 1)
@@ -36,7 +48,7 @@ Optional inputs:
 ```markdown
 Output:
 - path_to_notes: /path/to/reference_outputs/[Notes] chapter-name.pdf
-- file_size: > 500 KB (typically 1-2 MB)
+- file_size: > 100 KB (typically 200-600 KB)
 - page_count: 8-11 pages
 - format: PDF with UTF-8 encoding
 ```
@@ -114,31 +126,46 @@ Identify key components from the source PDF:
 
 ### Step 4: Generate Structured Content
 
-Create content following this template:
+Create content following this page-by-page template:
 
 ```markdown
-═════════════════════════════════════════════════════
-                    [CHAPTER TITLE]
-                 Comprehensive Study Notes
-═════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
+PAGE 1 — DEDICATED TITLE PAGE (force page break after)
+════════════════════════════════════════════════════════════
+
+                    [BOOK TITLE]
+
+                  Chapter N [Topic]
+
+                    [Author Name]
+
+              ──────────────────────────
+
+            Section X.X: [Section Title]
+
+    Core Concepts • Mnemonics • Inline Examples
+              • Competition Problems
+
+  Footer: "© [Year] [Author]" (left)   "- 1 -" (center)
+
+  *** NO content boxes on this page ***
+  *** Leave generous whitespace — this is a cover page ***
+
+════════════════════════════════════════════════════════════
+PAGES 2-9 — CONCEPTS (with inline Try These)
+════════════════════════════════════════════════════════════
+
+## Concept 1: [Concept Name]
 
 ┌───────────────────────────────────────────────────┐
 │  THE BIG IDEA 💡                                  │
-│  (Navy background: #003366)                       │
+│  (Pastel navy background: #E8EDF3)               │
+│  (Thin 0.5pt border: #003366)                    │
 │                                                   │
 │  [2-3 paragraphs explaining the core concept]     │
 │  [Why this chapter matters]                       │
 │  [How it connects to previous/future topics]     │
-│                                                   │
-│  Key Vocabulary:                                  │
-│  • Term 1: [Brief definition]                     │
-│  • Term 2: [Brief definition]                     │
-│  • Term 3: [Brief definition]                     │
 └───────────────────────────────────────────────────┘
-
-─────────────────────────────────────────────────────
-
-## Concept 1: [Concept Name]
 
 ### Definition
 
@@ -169,7 +196,8 @@ Create content following this template:
 
 ┌───────────────────────────────────────────────────┐
 │  Common Trap ⚠️                                   │
-│  (Red background: #CC0000)                        │
+│  (Pastel pink background: #FDE8E8)               │
+│  (Thin 0.5pt border: #CC0000)                    │
 │                                                   │
 │  [Description of typical student error]           │
 │  [Why it's wrong]                                 │
@@ -178,7 +206,8 @@ Create content following this template:
 
 ┌───────────────────────────────────────────────────┐
 │  Useful Tip 💡                                    │
-│  (Orange background: #FF8800)                     │
+│  (Pastel orange background: #FFF3E0)             │
+│  (Thin 0.5pt border: #FF8800)                    │
 │                                                   │
 │  [Practical advice for problem-solving]           │
 │  [Shortcut or strategy]                           │
@@ -203,7 +232,8 @@ Create content following this template:
 
 ## Concept 2: [Concept Name]
 
-[Repeat structure above]
+[Repeat structure above for each concept]
+- THE BIG IDEA box (if concept warrants its own)
 - Definition table
 - Visual mnemonic
 - Key properties with examples
@@ -213,109 +243,192 @@ Create content following this template:
 
 ─────────────────────────────────────────────────────
 
-[Continue for all major concepts - typically 2-4]
+[Continue for all major concepts — typically 2-4]
 
-─────────────────────────────────────────────────────
+*** Allow partially-empty pages — do NOT cram content to fill ***
+*** Minimum 18pt vertical spacing between major sections ***
 
-## Advanced Topics
+════════════════════════════════════════════════════════════
+PAGES 10-11 — PRACTICE PROBLEMS: EXAM LEVEL
+════════════════════════════════════════════════════════════
 
-[For more complex or nuanced aspects]
+## Practice Problems: Exam Level
 
-### Topic 1: [Name]
-[Explanation with examples]
+*Work through each problem, then check the Answer Key at the end.*
 
-### Topic 2: [Name]
-[Explanation with examples]
+### Section A: Standard Exam Problems
 
-─────────────────────────────────────────────────────
+Problem 1. [Easy — direct concept application]
+  (a) ...
+  (b) ...
 
-## Review & Summary
+Problem 2. [Easy-Medium — single concept]
+  ...
 
-### Concept Map
+Problem 3. [Medium — combines two concepts]
+  ...
 
-[Visual representation showing relationships between concepts]
+Problem 4. [Medium — requires deeper thinking]
+  ...
 
-### Key Formulas & Theorems
+Problem 5. [Medium-Hard — multi-step]
+  ...
 
-┌────────────────────┬──────────────────────────────┐
-│ Formula/Theorem    │ When to Use                  │
-├────────────────────┼──────────────────────────────┤
-│ [Formula 1]        │ [Application context]        │
-├────────────────────┼──────────────────────────────┤
-│ [Formula 2]        │ [Application context]        │
-├────────────────────┼──────────────────────────────┤
-│ [Theorem 1]        │ [Application context]        │
-└────────────────────┴──────────────────────────────┘
+Problem 6. [Hard — complex application]
+  ...
 
-### Common Mistakes Recap
+### Section B: Competition-Style Problems 🏆
 
-1. ❌ [Mistake 1] → ✅ [Correct approach]
-2. ❌ [Mistake 2] → ✅ [Correct approach]
-3. ❌ [Mistake 3] → ✅ [Correct approach]
+Problem 7. [Knights & Knaves or Liar Puzzle]
+  ...
 
-─────────────────────────────────────────────────────
+Problem 8. [Number Theory / Proof-based]
+  ...
 
-## Quick Reference Sheet
+Problem 9. [Chain Argument / Multi-step Logic]
+  ...
 
-### Definitions at a Glance
+Problem 10. [AMC/Putnam-style — creative approach needed]
+  ...
 
-| Term | Definition |
-|------|------------|
-| [Term 1] | [One-line def] |
-| [Term 2] | [One-line def] |
-| [Term 3] | [One-line def] |
+Problem 11. [Bonus — very challenging] (optional)
+  ...
 
-### Formula Sheet
-
-```
-[Key Formula 1]
-
-[Key Formula 2]
-
-[Key Formula 3]
-```
-
-### Problem-Solving Checklist
-
-- [ ] Read problem carefully and identify what's given
-- [ ] Determine which concept/theorem applies
-- [ ] Write down relevant formulas
-- [ ] Check for special cases or edge cases
-- [ ] Verify answer makes sense in context
-
-═════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
                    End of Notes
-═════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
 ```
 
-### Step 5: Format and Generate PDF
+### Step 5: Format and Generate PDF (HTML → Playwright Pipeline)
 
-Convert the structured content to PDF format with:
+Generate a complete HTML document, then convert it to PDF using the Playwright-based pipeline.
 
-1. **Typography**
-   - Headings: Arial Bold 16pt
-   - Body: Times New Roman 11pt
-   - Math: LaTeX-style rendering
-   - Text: UTF-8 encoding
+#### 5a. Read the CSS stylesheet
 
-2. **Colors**
-   - Navy boxes (#003366): THE BIG IDEA
-   - Red boxes (#CC0000): Common Traps
-   - Orange boxes (#FF8800): Useful Tips
-   - Light gray (#F5F5F5): Table backgrounds
+```bash
+Read skills/process-textbook/assets/notes-base.css
+```
 
-3. **Layout**
-   - 1-inch margins on all sides
-   - Adequate spacing between sections
-   - Page breaks at logical boundaries
-   - Header with chapter name
-   - Footer with page numbers
+This CSS defines all visual classes. Embed the entire contents in a `<style>` block in your HTML.
 
-4. **Mathematical Notation**
-   - Use proper LaTeX rendering
-   - Align multi-line equations
-   - Number important equations
-   - Use proper fraction formatting
+#### 5b. Generate the HTML document
+
+Create a complete HTML file with this structure:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>How To Prove It — Section 1.1</title>
+    <style>
+        /* Paste entire contents of notes-base.css here */
+    </style>
+</head>
+<body>
+    <!-- Title Page -->
+    <div class="title-page">
+        <h1>How To Prove It</h1>
+        <div class="chapter">Chapter 1: Sentential Logic</div>
+        <div class="author">Daniel J. Velleman</div>
+        <hr>
+        <div class="section">Section 1.1: Deductive Reasoning and Logical Connectives</div>
+        <div class="keywords">Core Concepts • Mnemonics • Inline Examples • Competition Problems</div>
+    </div>
+
+    <!-- First content section: NO .page-break (title-page handles its own break) -->
+    <div>
+        <h2>Concept 1: ...</h2>
+
+        <div class="big-idea no-break">
+            <div class="box-title">THE BIG IDEA 💡</div>
+            <p>Core concept explanation...</p>
+        </div>
+
+        <table>
+            <tr><th>Term</th><th>Definition</th></tr>
+            <tr><td>...</td><td>...</td></tr>
+        </table>
+
+        <div class="common-trap no-break">
+            <div class="box-title">Common Trap ⚠️</div>
+            <p>Students often confuse...</p>
+        </div>
+
+        <div class="useful-tip no-break">
+            <div class="box-title">Useful Tip 💡</div>
+            <p>Quick way to remember...</p>
+        </div>
+
+        <div class="try-these no-break">
+            <div class="box-title">Try These! 📝</div>
+            <ol>
+                <li>Easy example...<br><strong>Solution:</strong> ...</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Subsequent concepts: USE .page-break to start on new page -->
+    <div class="page-break">
+        <h2>Concept 2: ...</h2>
+        ...
+    </div>
+
+    <!-- Practice Problems (final pages) -->
+    <div class="page-break practice-problems">
+        <h2>Practice Problems: Exam Level</h2>
+        <h3>Section A: Standard Exam Problems</h3>
+        ...
+        <h3>Section B: Competition-Style Problems 🏆</h3>
+        ...
+    </div>
+</body>
+</html>
+```
+
+**Key rules for HTML generation:**
+- The `<title>` tag content appears in the PDF header (italic, auto-populated by Chromium)
+- Use `.title-page` for the dedicated first page (centered, generous whitespace) — `min-height:100vh` fills the page naturally
+- Do NOT add `.page-break` on the first content `<div>` after `.title-page` (the title page already fills a full page, so adding a page-break would create a blank page)
+- Use `.page-break` class on all subsequent content sections to force page breaks
+- Use `.no-break` on boxes/tables to prevent splitting across pages
+- Wrap inline LaTeX in `$...$` or `\(...\)` — KaTeX auto-renders these
+- Wrap display LaTeX in `$$...$$` or `\[...\]` — KaTeX auto-renders these
+- Use `<div class="math-display">$$...$$</div>` for centered display math
+- Do NOT include `<link>` or `<script>` tags for KaTeX — the PDF script injects them automatically
+- Side margins are handled by CSS `body { padding: 0 1in; }` — do NOT set HTML margins
+
+**Colors and formatting are ALL handled by the CSS classes** — just use the correct class names.
+
+#### 5c. Write the HTML to a temp file
+
+```bash
+Write /tmp/math-agent-studio-notes-{chapter-slug}.html [full HTML content]
+```
+
+#### 5d. Generate the PDF
+
+```bash
+python3 scripts/generate_pdf.py /tmp/math-agent-studio-notes-{chapter-slug}.html "{output_path}" --mode notes --footer-left "© 2026 Daniel Velleman"
+```
+
+The script automatically:
+- Launches headless Chromium via Playwright
+- Injects KaTeX for math rendering (from bundled local files)
+- Waits 2 seconds for math to render
+- Generates PDF with header (from `<title>`) and footer (copyright + page numbers)
+- Installs Playwright on first run if needed
+
+#### 5e. Typography and visual reference (handled by CSS + Playwright)
+
+These are all automatic — do NOT try to set them in HTML:
+- **Headings**: Arial Bold 18/16/14pt (h1/h2/h3)
+- **Body**: Times New Roman 11pt, line-height 1.6
+- **Colors**: Pastel fills with thin 0.5pt accent borders
+- **Header**: Italic text from `<title>` (Chromium built-in)
+- **Footer**: Copyright left, "- N -" page number center
+- **Spacing**: 18pt between major sections (via CSS margins)
+- **Orphan/widow control**: CSS `widows: 2; orphans: 2;`
 
 ### Step 6: Generate Output Path
 
@@ -329,12 +442,9 @@ This returns the standardized output path:
 reference_outputs/[Notes] chapter-name.pdf
 ```
 
-### Step 7: Write PDF Output
+### Step 7: Verify PDF Output
 
-```bash
-# Write the generated PDF content to the output path
-Write path_to_notes [PDF content]
-```
+The PDF was already generated by `generate_pdf.py` in Step 5d. Verify it exists:
 
 ### Step 8: Validate Output
 
@@ -413,7 +523,7 @@ Return the output path to the workflow orchestrator:
    - No garbled text or missing glyphs
 
 3. **File Quality**
-   - File size > 500 KB (typically 1-2 MB)
+   - File size > 100 KB (typically 200-600 KB)
    - Page count 8-11 pages
    - Valid PDF format (not corrupted)
 
@@ -421,30 +531,30 @@ Return the output path to the workflow orchestrator:
 
 ### Common Issues
 
-**Issue 1: Text not rendering properly**
-- Cause: Encoding problem or missing fonts
-- Fix: Ensure UTF-8 encoding, use system fonts
-- Retry: Yes (different font configuration)
+**Issue 1: Playwright not installed**
+- Cause: First run on new machine
+- Fix: Script auto-installs via `pip install playwright && playwright install chromium`
+- Retry: Yes (automatic)
 
 **Issue 2: Mathematical notation broken**
-- Cause: LaTeX rendering failure or missing math fonts
-- Fix: Use Unicode math symbols or different rendering
-- Retry: Yes (fallback to simpler notation)
+- Cause: KaTeX couldn't parse the LaTeX expression
+- Fix: Check LaTeX syntax — KaTeX supports a subset of LaTeX. Use `\text{}` for text in math mode.
+- Retry: Yes (fix the specific LaTeX expression)
 
-**Issue 3: PDF generation fails**
-- Cause: Content too large, memory issue, or file system error
-- Fix: Split content, reduce image quality, check disk space
-- Retry: Yes (with adjustments)
+**Issue 3: PDF generation fails or is blank**
+- Cause: HTML has syntax errors, or Chromium failed to render
+- Fix: Validate the HTML structure, check for unclosed tags
+- Retry: Yes (fix HTML and regenerate)
 
-**Issue 4: Output file too small**
-- Cause: Content didn't generate fully or truncated
-- Fix: Regenerate with full content
-- Retry: Yes (check for truncation points)
+**Issue 4: Output file too small (<100KB)**
+- Cause: HTML content too short or rendering failed silently
+- Fix: Check that the HTML file has substantial content, verify CSS is embedded
+- Retry: Yes (regenerate with more content)
 
-**Issue 5: Color boxes don't show**
-- Cause: PDF viewer issue or wrong color format
-- Fix: Use RGB values explicitly, test with different viewer
-- Retry: Maybe (if consistent failure, might be viewer issue)
+**Issue 5: Color boxes don't show in PDF**
+- Cause: `print_background` not set or CSS class names wrong
+- Fix: Verify CSS class names match notes-base.css exactly (e.g. `.big-idea` not `.big_idea`)
+- Retry: Yes (fix class names)
 
 ### Retry Strategy
 
