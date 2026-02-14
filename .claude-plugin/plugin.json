@@ -5,6 +5,7 @@
   "author": {
     "name": "Sundoo Park"
   },
+  "repository": "https://github.com/spark-dataduck/math-agent-studio",
   "keywords": [
     "mathematics",
     "education",
@@ -13,51 +14,5 @@
     "study-materials",
     "korean",
     "youtube"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/spark-dataduck/math-agent-studio"
-  },
-  "claudeCode": {
-    "minVersion": "2.1.0"
-  },
-  "skills": [
-    {
-      "name": "process-textbook",
-      "path": "skills/process-textbook",
-      "description": "Process a math textbook chapter PDF into 5 comprehensive study materials"
-    }
-  ],
-  "agents": [
-    {
-      "name": "workflow-orchestrator",
-      "path": "agents/workflow-orchestrator.md",
-      "description": "Orchestrates the sequential workflow for generating all 5 output types"
-    },
-    {
-      "name": "notes-generator",
-      "path": "agents/notes-generator.md",
-      "description": "Generates comprehensive study notes (Step 1) with concepts, examples, and mnemonics"
-    },
-    {
-      "name": "problems-generator",
-      "path": "agents/problems-generator.md",
-      "description": "Generates 10 practice problems (Step 2a) with standard and competition-level questions"
-    },
-    {
-      "name": "answers-generator",
-      "path": "agents/answers-generator.md",
-      "description": "Generates quick answer key (Step 2b) in compact table format"
-    },
-    {
-      "name": "explanations-generator",
-      "path": "agents/explanations-generator.md",
-      "description": "Generates detailed explanations (Step 2c) with multiple solution approaches"
-    },
-    {
-      "name": "script-generator",
-      "path": "agents/script-generator.md",
-      "description": "Generates 10-minute YouTube educational video script (Step 2d)"
-    }
   ]
 }
