@@ -21,7 +21,7 @@ reference_outputs/
 └── [Explanations] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 ```
 
-## 1. Notes (내용 요약정리)
+## 1. Notes
 
 **File:** `[Notes] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf`
 **Size:** 1.2 MB
@@ -80,7 +80,7 @@ See actual PDF for formatted version with colors and visual elements.
 
 ---
 
-## 2. Script (유튜브 스크립트)
+## 2. Script
 
 **File:** `[Script] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf`
 **Size:** 523 KB
@@ -122,7 +122,7 @@ Step 1: ...
 
 ### Key Features
 
-- Natural, conversational Korean
+- Natural, conversational tone
 - Timing markers throughout
 - Screen directions `[화면: ...]`
 - Engaging questions to audience
@@ -135,7 +135,7 @@ See actual PDF for complete script with timing and screen directions.
 
 ---
 
-## 3. Problems (문제 생성)
+## 3. Problems
 
 **File:** `[Problems] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf`
 **Size:** 387 KB
@@ -198,7 +198,7 @@ See actual PDF for all 10 problems with proper formatting and spacing.
 
 ---
 
-## 4. Quick Answers (답지)
+## 4. Quick Answers
 
 **File:** `[Quick Answers] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf`
 **Size:** 156 KB
@@ -247,7 +247,7 @@ See actual PDF for all 10 problems with proper formatting and spacing.
 
 ---
 
-## 5. Explanations (해설지)
+## 5. Explanations
 
 **File:** `[Explanations] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf`
 **Size:** 445 KB
@@ -354,7 +354,7 @@ All PDFs include:
 - ✅ Tables with alternating row colors
 - ✅ Clear typography hierarchy
 - ✅ Proper mathematical notation
-- ✅ Korean text (UTF-8 encoded)
+- ✅ UTF-8 encoded text
 - ✅ Icons and visual aids
 - ✅ Adequate spacing and margins
 

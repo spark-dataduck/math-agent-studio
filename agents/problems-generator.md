@@ -1,6 +1,6 @@
 ---
 name: problems-generator
-description: Generates 10 practice problems (문제 생성) from textbook content. Use when Step 2a of the workflow needs to create 6 standard exam problems and 4 competition-level problems with progressive difficulty.
+description: Generates 10 practice problems from textbook content. Use when Step 2a of the workflow needs to create 6 standard exam problems and 4 competition-level problems with progressive difficulty.
 model: inherit
 color: blue
 tools: ["Read", "Write", "Bash"]
@@ -48,13 +48,13 @@ Extract concepts and determine appropriate problem types.
 Read skills/process-textbook/references/prompts.md
 ```
 
-Korean prompt:
+Prompt:
 ```
-최대한 Putnam Math Competition 스타일로 만들어줘.
+Create problems in the style of the Putnam Math Competition as much as possible.
 
-**문제 구성:**
-- Section A (1-6번): 표준 시험 문제 (난이도: 쉬움 → 중간)
-- Section B (7-10번): 경시대회 스타일 문제 (난이도: 어려움)
+**Problem Structure:**
+- Section A (Problems 1-6): Standard exam problems (difficulty: easy → medium)
+- Section B (Problems 7-10): Competition-style problems (difficulty: hard)
 ```
 
 ### Step 3: Generate Problems

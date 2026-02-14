@@ -8,7 +8,7 @@ This document defines the detailed formatting requirements for all 5 output type
 
 ### File Specifications
 - **Format**: PDF (Adobe PDF 1.4 or higher)
-- **Encoding**: UTF-8 (for Korean text support)
+- **Encoding**: UTF-8 (for text support)
 - **Page Size**: US Letter (8.5" × 11")
 - **Orientation**: Portrait
 - **Minimum File Size**: 100 KB (to detect generation errors)
@@ -234,7 +234,7 @@ step is recognizing [pattern/strategy].
 
 [00:00 - 00:30] Opening
 ─────────────────────────────────────────
-[Dialogue in natural Korean]
+[Natural dialogue]
 
 [화면 지시: Show channel logo]
 
@@ -294,7 +294,7 @@ step is recognizing [pattern/strategy].
 ### For All Outputs
 - [ ] File is valid PDF format
 - [ ] File size > 100 KB
-- [ ] UTF-8 encoding for Korean text
+- [ ] UTF-8 encoding for text
 - [ ] All mathematical notation renders correctly
 - [ ] Margins are consistent (1 inch all sides)
 - [ ] Page numbers present (except Quick Answers)
@@ -326,7 +326,7 @@ step is recognizing [pattern/strategy].
 **Script:**
 - [ ] Timing markers throughout
 - [ ] Total time ≈ 10 minutes
-- [ ] Natural, conversational Korean
+- [ ] Natural, conversational tone
 - [ ] Screen directions included
 
 ---
@@ -335,8 +335,8 @@ step is recognizing [pattern/strategy].
 
 ### Common Issues
 
-**Issue**: Korean text displays as garbage characters
-**Solution**: Ensure UTF-8 encoding, use proper Korean fonts
+**Issue**: Text displays as garbage characters
+**Solution**: Ensure UTF-8 encoding, use proper fonts
 
 **Issue**: Mathematical symbols don't render
 **Solution**: Use LaTeX rendering or Unicode math symbols
@@ -355,6 +355,6 @@ step is recognizing [pattern/strategy].
 ## References
 
 - Adobe PDF Specification 1.4: https://www.adobe.com/devnet/pdf/
-- Korean Typography Best Practices: [internal reference]
+- Typography Best Practices: [internal reference]
 - LaTeX Math Symbols: https://www.ctan.org/
 - WCAG Color Contrast Guidelines: https://www.w3.org/WAI/WCAG21/

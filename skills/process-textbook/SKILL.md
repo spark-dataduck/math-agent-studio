@@ -510,7 +510,7 @@ Inputs:
 - If no progress for >10 minutes, might be hung
 
 ### Output quality is poor
-- Korean text not rendering: Check UTF-8 encoding
+- Text not rendering: Check UTF-8 encoding
 - Math notation broken: Check LaTeX rendering
 - Missing sections: Regenerate that step
 
@@ -542,8 +542,8 @@ This skill requires:
 
 ## Notes
 
-- All AI prompts are in Korean (as specified in prompts.md)
-- Output PDFs contain Korean text (UTF-8 encoded)
+- All AI prompts are specified in prompts.md
+- Output PDFs are UTF-8 encoded
 - Visual formatting (colored boxes, tables) is essential
 - Sequential execution is more reliable than parallel
 - State file enables resumption from any interruption

@@ -34,7 +34,7 @@ Output: 5 comprehensive study materials in **~15-25 minutes**:
 5. **[Script]** - YouTube video script (6 pages)
    - 10-minute educational video script
    - "Just Watch Math" channel style
-   - Natural, conversational Korean
+   - Natural, conversational tone
    - Timing markers and screen directions
 
 ## 🚀 Quick Start
@@ -176,7 +176,7 @@ This separation allows the skill to focus on user experience while agents focus 
 │                                                         │
 │ Responsibilities:                                       │
 │ • Read input files (source PDF, previous outputs)      │
-│ • Apply Korean prompt templates                        │
+│ • Apply prompt templates                               │
 │ • Generate formatted PDF output                        │
 │ • Validate output quality                              │
 │ • Return output path to orchestrator                   │
@@ -228,7 +228,7 @@ math-agent-studio/
 │   └── process-textbook/
 │       ├── SKILL.md             # User-facing entry point
 │       └── references/
-│           ├── prompts.md       # Korean AI prompts (5 types)
+│           ├── prompts.md       # AI prompts (5 types)
 │           ├── output-formats.md # Format specifications
 │           └── workflow-states.md # State machine docs
 │
@@ -252,9 +252,9 @@ math-agent-studio/
 
 ## 🔧 Configuration
 
-### Korean Language Prompts
+### AI Prompts
 
-All AI prompts are in Korean and located in:
+All AI prompts are located in:
 ```
 skills/process-textbook/references/prompts.md
 ```
@@ -310,7 +310,7 @@ Example files:
 
 3. **Generator Agents**
    - Each agent reads relevant inputs
-   - Applies Korean AI prompts
+   - Applies AI prompts
    - Generates formatted PDF output
    - Returns path to orchestrator
 
@@ -367,7 +367,7 @@ Problem: File path doesn't exist or is incorrect
 Solution: Check the path and ensure the file exists
 ```
 
-**Korean text displays as garbage**
+**Text displays as garbage**
 ```
 Problem: Encoding issue
 Solution: Ensure PDF viewer supports UTF-8
@@ -420,7 +420,7 @@ python3 scripts/generate_output_path.py "Notes" "reference_source/test.pdf"
 
 To add a new output type (e.g., flashcards):
 
-1. Create Korean prompt in `skills/process-textbook/references/prompts.md`
+1. Create prompt in `skills/process-textbook/references/prompts.md`
 2. Create agent file: `agents/flashcards-generator.md`
 3. Register agent in `.claude-plugin/plugin.json`
 4. Update orchestrator to include new step
@@ -436,7 +436,7 @@ To add a new output type (e.g., flashcards):
 
 Guidelines:
 - Follow existing agent structure
-- Add Korean prompts to `prompts.md`
+- Add prompts to `prompts.md`
 - Document new features in README
 - Include example outputs
 
@@ -474,7 +474,7 @@ The skill requests these permissions:
 - [x] State persistence and resumption
 - [x] Error handling with retry logic
 - [x] 5 output types (Notes, Problems, Answers, Explanations, Script)
-- [x] Korean language support (UTF-8)
+- [x] UTF-8 encoding support
 - [x] Visual formatting (colored boxes, tables)
 - [x] Progress tracking and reporting
 - [x] Example outputs and documentation
@@ -488,7 +488,7 @@ The skill requests these permissions:
 - [ ] LaTeX source output option
 - [ ] Web interface for configuration
 - [ ] Quality validation checks (automated)
-- [ ] Multi-language support (beyond Korean)
+- [ ] Multi-language support
 
 ## 🙏 Acknowledgments
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Math Agent Studio** is a Claude Code plugin that transforms math textbook chapter PDFs into 5 comprehensive study materials: Notes, Problems, Quick Answers, Explanations, and YouTube Scripts. All outputs are in Korean with rich visual formatting (colored boxes, tables, LaTeX).
+**Math Agent Studio** is a Claude Code plugin that transforms math textbook chapter PDFs into 5 comprehensive study materials: Notes, Problems, Quick Answers, Explanations, and YouTube Scripts. All outputs are in English with rich visual formatting (colored boxes, tables, LaTeX).
 
 **Target Use Case**: Students studying from math textbooks (e.g., "How To Prove It") who want comprehensive, exam-ready materials plus YouTube scripts for educational content.
 
@@ -102,8 +102,8 @@ notes-generator (Step 1)
 
 All reference materials are in `skills/process-textbook/references/`:
 
-1. **prompts.md** - Korean AI prompts for all 5 output types
-   - Contains detailed Korean instructions for content generation
+1. **prompts.md** - AI prompts for all 5 output types
+   - Contains detailed instructions for content generation
    - Defines tone, structure, and formatting requirements
    - **Critical for output quality** - edit here to change content style
 
@@ -138,13 +138,13 @@ Examples:
 
 Each generator agent is a specialized Task that:
 1. Reads input files (source PDF, previous outputs)
-2. Applies Korean prompt from `prompts.md`
+2. Applies prompt from `prompts.md`
 3. Generates formatted PDF output
 4. Returns output path to orchestrator
 
 **Agent Files**:
 - `agents/notes-generator.md` - Comprehensive notes (8-11 pages, THE BIG IDEA, mnemonics, examples)
-- `agents/script-generator.md` - 10-minute YouTube script (conversational Korean, "Just Watch Math" style)
+- `agents/script-generator.md` - 10-minute YouTube script (conversational English, "Just Watch Math" style)
 - `agents/problems-generator.md` - 10 problems (6 standard + 4 Putnam-level)
 - `agents/answers-generator.md` - Compact answer key (1-page table)
 - `agents/explanations-generator.md` - Step-by-step solutions (2-3 pages)
@@ -219,7 +219,7 @@ Each step has 3 retry attempts with exponential backoff:
 
 To add a 6th output (e.g., flashcards):
 
-1. Create Korean prompt in `skills/process-textbook/references/prompts.md`
+1. Create prompt in `skills/process-textbook/references/prompts.md`
 2. Create agent file: `agents/flashcards-generator.md` (auto-discovered, no registration needed)
 3. Update `workflow-orchestrator.md` to include new step
 4. Update `SKILL.md` execution order
@@ -228,7 +228,7 @@ To add a 6th output (e.g., flashcards):
 ### Modifying Output Content
 
 **To change what gets generated** (e.g., longer scripts, different problem types):
-- Edit `skills/process-textbook/references/prompts.md` (Korean prompts)
+- Edit `skills/process-textbook/references/prompts.md` (prompts)
 - Edit specific agent file (e.g., `agents/script-generator.md`)
 
 **To change visual formatting** (e.g., colors, layouts):
@@ -263,10 +263,9 @@ Compare outputs with existing files in `reference_outputs/` to verify quality.
 
 ## Important Conventions
 
-### Korean Language
+### Language
 
-- All prompts are in Korean (`prompts.md`)
-- All generated content is in Korean
+- All prompts and generated content are in English
 - UTF-8 encoding throughout
 - Math notation uses LaTeX (language-agnostic)
 
@@ -304,7 +303,7 @@ Before marking a step complete, verify:
 3. `agents/workflow-orchestrator.md` - Core workflow coordination
 
 **Deep dive**:
-4. `skills/process-textbook/references/prompts.md` - Korean prompts (critical for output quality)
+4. `skills/process-textbook/references/prompts.md` - Prompts (critical for output quality)
 5. Individual agent files in `agents/` - Understand each output type
 
 **Utilities**:
@@ -315,7 +314,7 @@ Before marking a step complete, verify:
 
 1. **Never break resumption**: State file format changes must be backward-compatible
 2. **Maintain sequential execution**: Don't parallelize without considering rate limits
-3. **Preserve Korean prompts**: Content generation depends on exact Korean phrasing
+3. **Preserve prompts carefully**: Content generation depends on exact prompt phrasing
 4. **Test with reference PDF**: Always verify against example before committing
 
 ### Reading Agent Files
@@ -337,7 +336,7 @@ math-agent-studio/
 │   └── process-textbook/
 │       ├── SKILL.md          # Entry point (user-invocable)
 │       └── references/
-│           ├── prompts.md    # Korean AI prompts ⭐
+│           ├── prompts.md    # AI prompts ⭐
 │           ├── output-formats.md
 │           └── workflow-states.md
 ├── agents/
@@ -363,12 +362,12 @@ math-agent-studio/
 - If no updates for >10 minutes, likely hung
 - Safe to Ctrl+C and resume
 
-**"Korean text displays as garbage"**
+**"Text displays as garbage"**
 - PDF viewer doesn't support UTF-8
 - Try different viewer (Preview on macOS, Adobe Reader)
 
 **"Output quality is poor"**
-- Edit Korean prompts in `prompts.md`
+- Edit prompts in `prompts.md`
 - Regenerate by restarting workflow (archive old state first)
 
 **"Can't resume workflow"**

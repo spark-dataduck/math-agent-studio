@@ -1,6 +1,6 @@
 ---
 name: answers-generator
-description: Generates quick answer key (답지 생성) in compact table format. Use when Step 2b of the workflow needs to create a 1-page answer sheet from the problems generated in Step 2a.
+description: Generates quick answer key in compact table format. Use when Step 2b of the workflow needs to create a 1-page answer sheet from the problems generated in Step 2a.
 model: inherit
 color: cyan
 tools: ["Read", "Write", "Bash"]
@@ -45,14 +45,14 @@ Extract all 10 problems and determine correct answers.
 Read skills/process-textbook/references/prompts.md
 ```
 
-Korean prompt:
+Prompt:
 ```
-빠르게 답만 일단 먼저 체크할 수 있게 답만 정리해서 답지 만들어줘.
+Create a quick answer key so students can check answers at a glance.
 
-**형식:**
-- 표 형식 (Table format)
-- 문제 번호 | 답안 컬럼 구조
-- 간단한 설명 (예: "x = 3" 또는 "증명 필요")
+**Format:**
+- Table format
+- Problem number | Answer column structure
+- Brief descriptions (e.g., "x = 3" or "See detailed solution")
 ```
 
 ### Step 3: Generate Answer Key

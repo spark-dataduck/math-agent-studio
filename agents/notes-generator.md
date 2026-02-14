@@ -1,6 +1,6 @@
 ---
 name: notes-generator
-description: Generates comprehensive study notes (내용 요약정리) from math textbook PDFs. Use when Step 1 of the textbook processing workflow needs to create formatted notes with concepts, examples, mnemonics, and common traps.
+description: Generates comprehensive study notes from math textbook PDFs. Use when Step 1 of the textbook processing workflow needs to create formatted notes with concepts, examples, mnemonics, and common traps.
 model: opus
 color: green
 tools: ["Read", "Write", "Bash"]
@@ -17,7 +17,6 @@ Generate comprehensive study notes (8-11 pages) from a math textbook chapter PDF
 This agent uses the **opus** model (most capable) because:
 - Complex content structuring required (THE BIG IDEA, mnemonics, traps, tips)
 - Must maintain visual formatting (colored boxes, tables, icons)
-- Korean language content generation with proper UTF-8 encoding
 - Longest output (8-11 pages) needs sustained coherence
 - Quality is critical - other steps depend on these notes
 
@@ -62,31 +61,31 @@ Extract:
 ### Step 2: Load Prompt Template
 
 ```bash
-# Read the Korean prompt template
+# Read the prompt template
 Read skills/process-textbook/references/prompts.md
 ```
 
-Locate the **"1. Notes Generation (내용 요약정리)"** section.
+Locate the **"1. Notes Generation (Comprehensive Study Notes)"** section.
 
-The Korean prompt is:
+The prompt is:
 ```
-중요한 개념, 공식 키워드 눈에 잘 띄게 정리 해줘. 한 개념 또는 공식 배운 다음에 바로 쉬운 예제를 넣어줘.
+Organize key concepts, formulas, and keywords so they stand out clearly. After each concept or formula, immediately include easy examples.
 
-내가 공부할 때 시험볼 때 자주 틀리고 헷갈렸던 부분들도 꼭 언급해주고, 개념을 이해하는 데 도움이 될 만한 비유나 시각적 연상법도 추가해줘.
+Mention common mistakes and confusing points that students frequently get wrong on exams, and add analogies or visual mnemonics that help with understanding.
 
-**포함할 요소:**
-- THE BIG IDEA (navy 박스): 챕터의 핵심 개념
-- Visual Mnemonics: 개념을 쉽게 기억할 수 있는 비유/은유
-- Definition Tables: 정의를 표 형식으로 정리
-- Common Traps (빨간 경고): 자주 틀리는 실수들
-- Useful Tips (주황 박스): 문제 풀 때 유용한 팁
-- "Try These" 예제: 각 개념마다 3-4개의 연습 문제
+**Required Elements:**
+- THE BIG IDEA (navy box): Core concept of the chapter
+- Visual Mnemonics: Analogies/metaphors to remember concepts easily
+- Definition Tables: Definitions organized in table format
+- Common Traps (red warning): Frequently made mistakes
+- Useful Tips (orange box): Helpful tips for problem-solving
+- "Try These" examples: 3-4 practice problems per concept
 
-**형식 가이드:**
-- 8-11 페이지 분량
-- 색상 구분 (navy = 핵심, red = 주의, orange = 팁)
-- 표와 다이어그램 적극 활용
-- 수식은 명확하게 표기
+**Format Guide:**
+- 8-11 pages
+- Color coding (navy = core concepts, red = warnings, orange = tips)
+- Use tables and diagrams extensively
+- Notation must be clear and precise
 ```
 
 ### Step 3: Analyze Content Structure
@@ -297,7 +296,7 @@ Convert the structured content to PDF format with:
    - Headings: Arial Bold 16pt
    - Body: Times New Roman 11pt
    - Math: LaTeX-style rendering
-   - Korean text: UTF-8 with appropriate Korean fonts
+   - Text: UTF-8 encoding
 
 2. **Colors**
    - Navy boxes (#003366): THE BIG IDEA
@@ -382,7 +381,7 @@ Return the output path to the workflow orchestrator:
 ### Content Quality
 
 1. **Clarity**
-   - Use simple, direct language in Korean
+   - Use simple, direct language in English
    - Explain technical terms when first introduced
    - Provide concrete examples for abstract concepts
 
@@ -409,7 +408,7 @@ Return the output path to the workflow orchestrator:
    - Adequate spacing and margins
 
 2. **Encoding**
-   - UTF-8 for Korean text support
+   - UTF-8 encoding
    - Proper rendering of special characters
    - No garbled text or missing glyphs
 
@@ -422,9 +421,9 @@ Return the output path to the workflow orchestrator:
 
 ### Common Issues
 
-**Issue 1: Korean text not rendering**
-- Cause: Encoding problem or missing Korean fonts
-- Fix: Ensure UTF-8 encoding, use system Korean fonts
+**Issue 1: Text not rendering properly**
+- Cause: Encoding problem or missing fonts
+- Fix: Ensure UTF-8 encoding, use system fonts
 - Retry: Yes (different font configuration)
 
 **Issue 2: Mathematical notation broken**
@@ -505,7 +504,7 @@ The output of this agent ([Notes] PDF) is used by:
 
 - This is the **most critical agent** - quality here affects all downstream outputs
 - Uses **opus model** for maximum capability
-- Korean language content requires careful UTF-8 handling
+- All content must be generated in **English**
 - Visual formatting (boxes, colors) is essential for usability
 - "Try These" examples are pedagogically important - don't skip them
 - Validate output thoroughly before returning to orchestrator

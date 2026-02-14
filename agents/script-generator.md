@@ -1,6 +1,6 @@
 ---
 name: script-generator
-description: Generates 10-minute YouTube educational video script (유튜브 스크립트) from study notes. Use when Step 2d of the textbook processing workflow needs to create a natural, conversational script for the "Just Watch Math" channel.
+description: Generates 10-minute YouTube educational video script from study notes. Use when Step 2d of the textbook processing workflow needs to create a natural, conversational script for the "Just Watch Math" channel.
 model: inherit
 color: purple
 tools: ["Read", "Write", "Bash"]
@@ -10,7 +10,7 @@ tools: ["Read", "Write", "Bash"]
 
 ## Purpose
 
-Generate a 10-minute YouTube educational video script in Korean with natural, conversational dialogue for the "Just Watch Math" channel.
+Generate a 10-minute YouTube educational video script in English with natural, conversational dialogue for the "Just Watch Math" channel.
 
 ## Input Requirements
 
@@ -54,20 +54,20 @@ Extract key elements:
 Read skills/process-textbook/references/prompts.md
 ```
 
-Locate **"5. Script Generation (유튜브 스크립트 생성)"** section.
+Locate **"5. Script Generation (YouTube Script)"** section.
 
-Korean prompt:
+Prompt:
 ```
-10분 가량의 친근하고 자연스러운 튜터선생님 톤으로 유튜브 스크립트 작성해줘.
+Write a YouTube script in a friendly, natural tutor tone for approximately 10 minutes.
 
-**브랜딩:**
-- 채널명: "Just Watch Math"
-- 톤: 친근하고 격려적인 선생님
-- 스타일: 대화형, 질문을 던지며 설명
+**Branding:**
+- Channel name: "Just Watch Math"
+- Tone: Friendly and encouraging teacher
+- Style: Conversational, explains while asking questions
 
-**구조:**
-1. Opening (30초)
-2. THE BIG IDEA (2분)
+**Structure:**
+1. Opening (30 seconds)
+2. THE BIG IDEA (2 minutes)
 3. Common Trap 경고 (1분)
 4. Quick Tip (1분)
 5. 예제 문제 풀이 (4분)
@@ -401,7 +401,7 @@ Total: 10:00
 | Review/Close | 1:30 | Reinforce, motivate |
 
 ### Script Length
-- ~1500-1800 words in Korean
+- ~1500-1800 words in English
 - Average speaking rate: 150-180 words/minute
 - Natural pauses included in timing
 ```
@@ -437,7 +437,7 @@ echo "SUCCESS: Script generated ($file_size bytes)"
 
 - [ ] Timing markers throughout ([MM:SS])
 - [ ] Total duration ≈ 10 minutes
-- [ ] Natural, conversational Korean
+- [ ] Natural, conversational English
 - [ ] Screen directions included
 - [ ] Examples from notes incorporated
 - [ ] Engaging questions included

@@ -1,6 +1,6 @@
 ---
 name: explanations-generator
-description: Generates detailed step-by-step solutions (해설지 생성) with multiple approaches. Use when Step 2c of the workflow needs to create comprehensive explanations for all 10 problems from Step 2a.
+description: Generates detailed step-by-step solutions with multiple approaches. Use when Step 2c of the workflow needs to create comprehensive explanations for all 10 problems from Step 2a.
 model: inherit
 color: yellow
 tools: ["Read", "Write", "Bash"]
@@ -45,16 +45,16 @@ Extract all 10 problems to solve.
 Read skills/process-textbook/references/prompts.md
 ```
 
-Korean prompt:
+Prompt:
 ```
-해설과 답 같이 넣어줘. 문제를 접근하는 방법/푸는 방법이 여러가지가 있다면 여러 가지 방법 다 설명해줘.
+Include both solutions and answers together. If there are multiple approaches to solving a problem, explain all of them.
 
-**포함할 요소:**
-- 답안 (볼드체로 강조)
-- 단계별 설명 (Step-by-step reasoning)
-- 케이스 분석 (Case analysis when applicable)
-- 자주 하는 실수 강조 (Common errors highlighted)
-- 대안 풀이법 (Alternative solution methods)
+**Required Elements:**
+- Answers (bold emphasis)
+- Step-by-step reasoning
+- Case analysis when applicable
+- Common errors highlighted
+- Alternative solution methods
 ```
 
 ### Step 3: Generate Explanations
