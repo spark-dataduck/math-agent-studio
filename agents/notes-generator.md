@@ -152,8 +152,14 @@ PAGE 1 — DEDICATED TITLE PAGE (force page break after)
   *** Leave generous whitespace — this is a cover page ***
 
 ════════════════════════════════════════════════════════════
-PAGES 2-9 — CONCEPTS (with inline Try These)
+PAGES 2-9 — CONCEPTS (high density, minimal page breaks)
 ════════════════════════════════════════════════════════════
+
+**IMPORTANT:** All elements for a single concept (Big Idea, tables, mnemonics,
+traps, tips, Try These) should flow together in ONE `<div>` without internal
+page breaks. Only add `.page-break` to start a NEW major concept.
+
+Target: 2-4 major concepts spanning pages 2-9 (about 2-3 pages per concept).
 
 ## Concept 1: [Concept Name]
 
@@ -245,8 +251,12 @@ PAGES 2-9 — CONCEPTS (with inline Try These)
 
 [Continue for all major concepts — typically 2-4]
 
-*** Allow partially-empty pages — do NOT cram content to fill ***
-*** Minimum 18pt vertical spacing between major sections ***
+*** CRITICAL PAGE DENSITY RULES ***
+- Target 8-11 pages total (if you're generating 15+ pages, you have too many page breaks)
+- Each concept (Big Idea + tables + traps + tips + Try These) spans ~2-3 pages, NOT 5-6 pages
+- Allow reasonable whitespace (18pt between sections), but aim for 60-80% page coverage
+- Do NOT add `.page-break` before every box — only between major concepts
+- Let content flow: multiple boxes and tables per page is expected and desired
 
 ════════════════════════════════════════════════════════════
 PAGES 10-11 — PRACTICE PROBLEMS: EXAM LEVEL
@@ -313,6 +323,15 @@ This CSS defines all visual classes. Embed the entire contents in a `<style>` bl
 
 #### 5b. Generate the HTML document
 
+**CRITICAL PAGE COUNT TARGET: 8-11 pages total**
+
+The original reference output is 11 pages with high information density. Structure your HTML to achieve similar density:
+- **Page 1:** Title page (dedicated, centered)
+- **Pages 2-9:** Concepts (typically 2-4 major concepts, each spanning 2-3 pages with ALL its boxes, tables, mnemonics, and Try These flowing together)
+- **Pages 10-11:** Practice Problems (Section A + Section B) + optional Answer Key
+
+**Avoid excessive page breaks** — use `.page-break` ONLY between major concepts, not before every box or section. Let Big Idea + Definition Table + Mnemonics + Common Trap + Useful Tip + Try These all flow within one concept's `<div>`.
+
 Create a complete HTML file with this structure:
 
 ```html
@@ -336,45 +355,74 @@ Create a complete HTML file with this structure:
         <div class="keywords">Core Concepts • Mnemonics • Inline Examples • Competition Problems</div>
     </div>
 
-    <!-- First content section: NO .page-break (title-page handles its own break) -->
+    <!-- First content section: NO .page-break (title-page already forces a new page) -->
     <div>
-        <h2>Concept 1: ...</h2>
+        <h2>Concept 1: Deductive Arguments</h2>
 
         <div class="big-idea no-break">
             <div class="box-title">THE BIG IDEA 💡</div>
-            <p>Core concept explanation...</p>
+            <p>Deductive Argument = Premises + Conclusion...</p>
+            <p>VALID if all premises true → conclusion guaranteed true...</p>
         </div>
 
+        <h3>Visual Mnemonic: The PVC Pipe 🧠</h3>
+        <p>Think of a deductive argument as a PVC pipe: Premises go in → Validity is the pipe itself → Conclusion comes out...</p>
+
         <table>
-            <tr><th>Term</th><th>Definition</th></tr>
-            <tr><td>...</td><td>...</td></tr>
+            <tr><th>Term</th><th>Definition</th><th>In Plain Terms</th></tr>
+            <tr><td>Premise</td><td>A statement assumed to be true...</td><td>The "given" information</td></tr>
+            <tr><td>Conclusion</td><td>Statement claimed to follow...</td><td>What you're proving</td></tr>
+            <tr><td>Valid</td><td>All true premises → true conclusion</td><td>The logical "plumbing" is airtight</td></tr>
+            <tr><td>Invalid</td><td>Scenario exists where premises true, conclusion false</td><td>There's a leak in the logic</td></tr>
         </table>
 
         <div class="common-trap no-break">
             <div class="box-title">Common Trap ⚠️</div>
-            <p>Students often confuse...</p>
+            <p><strong>"Valid" ≠ "True"!</strong> A valid argument can have completely false premises...</p>
         </div>
 
         <div class="useful-tip no-break">
             <div class="box-title">Useful Tip 💡</div>
-            <p>Quick way to remember...</p>
+            <p>To prove invalid: only need ONE counterexample. To prove valid: must show it works in every scenario...</p>
         </div>
 
         <div class="try-these no-break">
             <div class="box-title">Try These! 📝</div>
             <ol>
-                <li>Easy example...<br><strong>Solution:</strong> ...</li>
+                <li>Is this valid? "P or Q. Not Q. Therefore P."<br><strong>Answer:</strong> VALID (Disjunctive Syllogism)...</li>
+                <li>Is this valid? "A or B. A or C. Therefore B or C."<br><strong>Answer:</strong> INVALID. Counterexample: A=T, B=F, C=F...</li>
+                <li>Is this valid? "P and Q. Therefore P."<br><strong>Answer:</strong> VALID. If both are true, certainly P alone is true...</li>
             </ol>
         </div>
     </div>
 
-    <!-- Subsequent concepts: USE .page-break to start on new page -->
+    <!-- Subsequent concepts: USE .page-break ONLY between major concepts (not before every box) -->
     <div class="page-break">
-        <h2>Concept 2: ...</h2>
-        ...
+        <h2>Concept 2: The Three Logical Connectives</h2>
+
+        <div class="big-idea no-break">
+            <div class="box-title">THE BIG IDEA 💡</div>
+            <p>Three symbols build complex statements: ∨ OR, ∧ AND, ¬ NOT...</p>
+        </div>
+
+        <!-- Comparison table, memory tricks, traps, tips, Try These all flow in same div -->
+        <h3>Visual Mnemonic: Symbol Memory Tricks 🧠</h3>
+        <p>∨ = OR — V shape opens up → opens possibilities...</p>
+
+        <table>...</table>
+
+        <div class="common-trap no-break">...</div>
+        <div class="useful-tip no-break">...</div>
+        <div class="try-these no-break">...</div>
     </div>
 
-    <!-- Practice Problems (final pages) -->
+    <!-- Concept 3, 4, 5... each with .page-break to start new concept -->
+    <div class="page-break">
+        <h2>Concept 3: ...</h2>
+        <!-- All boxes, tables, Try These flow here without internal breaks -->
+    </div>
+
+    <!-- Practice Problems (final pages) — always use .page-break to start new section -->
     <div class="page-break practice-problems">
         <h2>Practice Problems: Exam Level</h2>
         <h3>Section A: Standard Exam Problems</h3>
@@ -387,10 +435,24 @@ Create a complete HTML file with this structure:
 ```
 
 **Key rules for HTML generation:**
+
+**Page breaks and density (CRITICAL — target 8-11 pages total):**
 - The `<title>` tag content appears in the PDF header (italic, auto-populated by Chromium)
-- Use `.title-page` for the dedicated first page (centered, generous whitespace) — `min-height:100vh` fills the page naturally
-- Do NOT add `.page-break` on the first content `<div>` after `.title-page` (the title page already fills a full page, so adding a page-break would create a blank page)
-- Use `.page-break` class on all subsequent content sections to force page breaks
+- Use `.title-page` for the dedicated first page only — `min-height:100vh` naturally fills the page
+- Do NOT add `.page-break` on the first content `<div>` after `.title-page` (would create blank page)
+- **ONLY use `.page-break` between major concepts** (typically 2-4 in a chapter) — NOT before every box/section
+- Let content flow naturally within a concept — Big Idea + tables + traps + tips + Try These can all be on the same page or flow across 2 pages
+- **Target: ~2-3 pages per concept** including all its boxes and examples
+- The agent CSS already handles orphan/widow control — don't manually force breaks everywhere
+
+**Emojis in box titles (REQUIRED for visual scanning):**
+- Big Idea: `<div class="box-title">THE BIG IDEA 💡</div>` (use the HTML entity &#x1F4A1; or Unicode emoji)
+- Common Trap: `<div class="box-title">Common Trap ⚠️</div>` (use &#x26A0;&#xFE0F;)
+- Useful Tip: `<div class="box-title">Useful Tip 💡</div>` (use &#x1F4A1;)
+- Try These: `<div class="box-title">Try These! 📝</div>` (use &#x1F4DD;)
+- Mnemonic sections can use 🧠 (&#x1F9E0;) or 🎯 (&#x1F3AF;)
+
+**Math and structure:**
 - Use `.no-break` on boxes/tables to prevent splitting across pages
 - Wrap inline LaTeX in `$...$` or `\(...\)` — KaTeX auto-renders these
 - Wrap display LaTeX in `$$...$$` or `\[...\]` — KaTeX auto-renders these
@@ -606,8 +668,8 @@ The output of this agent ([Notes] PDF) is used by:
 ## Performance Expectations
 
 - **Execution Time**: 3-8 minutes (depends on chapter complexity)
-- **File Size**: 1-2 MB typical
-- **Page Count**: 8-11 pages
+- **File Size**: 200-600 KB typical (HTML→Playwright pipeline is efficient)
+- **Page Count**: 8-11 pages (not 15-20 — avoid excessive page breaks)
 - **Success Rate**: >95% (with retry logic)
 
 ## Notes

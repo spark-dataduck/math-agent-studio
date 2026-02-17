@@ -35,14 +35,15 @@ Mention common mistakes and confusing points that students frequently get wrong 
   - Header: "Work through each problem, then check the Answer Key at the end."
 
 **Format Guide:**
-- 8-11 pages
+- **8-11 pages total** (STRICT target — not 15-20 pages)
 - Page 1: Title page (dedicated full page, no content boxes)
-- Pages 2-9: Concepts with inline Try These
-- Pages 10-11: Practice Problems: Exam Level
+- Pages 2-9: Concepts with inline Try These (typically 2-4 major concepts, each spanning 2-3 pages)
+- Pages 10-11: Practice Problems: Exam Level + optional Answer Key
 - Color coding: pastel tints with accent-color borders (navy = core concepts, red = warnings, orange = tips)
 - Use tables and diagrams extensively
 - Notation must be clear and precise
-- Generous whitespace — allow partially-empty pages, do NOT cram content
+- **Information density:** Each concept page should have ~60-80% text/content coverage (not 30-40%). Allow reasonable whitespace between sections, but don't waste half-pages unnecessarily.
+- **Box titles MUST include emojis:** THE BIG IDEA 💡, Common Trap ⚠️, Useful Tip 💡, Try These! 📝, mnemonics can use 🧠 or 🎯
 ```
 
 ### Expected Output Structure:
@@ -59,22 +60,24 @@ Page 1: TITLE PAGE (dedicated, full page)
   - "Core Concepts • Mnemonics • Inline Examples • Competition Problems"
   - NO content boxes on this page
 
-Pages 2-3: Concept 1
-  - THE BIG IDEA (pastel navy box)
-  - Definition (table format)
-  - Visual mnemonic
-  - Key properties with examples
-  - Common Trap (pastel pink box)
-  - Useful Tip (pastel orange box)
-  - Try These (3-4 problems with solutions)
+Pages 2-3 (or 2-4): Concept 1
+  - THE BIG IDEA 💡 (pastel navy box)
+  - Definition table
+  - Visual mnemonic 🎯 or 🧠 (metaphor/analogy)
+  - Key properties with inline examples
+  - Common Trap ⚠️ (pastel pink box)
+  - Useful Tip 💡 (pastel orange box)
+  - Try These! 📝 (3-4 problems with solutions)
+  - **ALL flow together in one concept section** without internal page breaks
 
-Pages 4-5: Concept 2
-  - Same structure as Concept 1
-  - Additional concepts as needed
+Pages 4-5 (or 5-7): Concept 2
+  - Same inline structure as Concept 1
+  - Start with `.page-break` but then all elements flow together
 
-Pages 6-9: Additional Concepts
-  - Continue same inline structure
-  - Allow partial empty pages — prioritize readability over density
+Pages 6-9: Additional Concepts (if needed)
+  - Each major concept gets its own `.page-break` to start
+  - Aim for ~2-3 pages per concept including all boxes/tables/examples
+  - **Target density: 60-80% of page filled with content** (not 30-40% with massive whitespace)
 
 Pages 10-11: Practice Problems: Exam Level
   - Section A: Standard Exam Problems (6 problems)
