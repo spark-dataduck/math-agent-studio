@@ -37,8 +37,8 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16pt;
     font-weight: bold;
-    margin-top: 20pt;
-    margin-bottom: 10pt;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
     color: #1a1a1a;
 }
 
@@ -46,8 +46,8 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14pt;
     font-weight: bold;
-    margin-top: 16pt;
-    margin-bottom: 8pt;
+    margin-top: 10pt;
+    margin-bottom: 6pt;
     color: #333;
 }
 
@@ -128,7 +128,7 @@ h4 {
     border: 0.5pt solid #003366;
     border-radius: 4px;
     padding: 16pt 20pt;
-    margin: 18pt 0;
+    margin: 12pt 0;
     page-break-inside: avoid;
 }
 
@@ -149,7 +149,7 @@ h4 {
     border: 0.5pt solid #CC0000;
     border-radius: 4px;
     padding: 16pt 20pt;
-    margin: 18pt 0;
+    margin: 12pt 0;
     page-break-inside: avoid;
 }
 
@@ -170,7 +170,7 @@ h4 {
     border: 0.5pt solid #FF8800;
     border-radius: 4px;
     padding: 16pt 20pt;
-    margin: 18pt 0;
+    margin: 12pt 0;
     page-break-inside: avoid;
 }
 
@@ -238,11 +238,12 @@ li {
 /* ── Try These / Practice ───────────────────────── */
 
 .try-these {
-    margin: 18pt 0;
+    margin: 12pt 0;
     padding: 12pt 20pt;
     border-left: 3pt solid #003366;
     background-color: #FAFBFC;
-    page-break-inside: avoid;
+    /* Allow splitting across pages — Try These are tall (3 problems + solutions)
+       and page-break-inside:avoid wastes half-pages pushing them to next page */
 }
 
 .try-these .box-title {
@@ -289,9 +290,11 @@ li {
         page-break-inside: avoid;
     }
 
-    .big-idea, .common-trap, .useful-tip, .try-these, table {
+    .big-idea, .common-trap, .useful-tip, table {
         page-break-inside: avoid;
     }
+
+    /* .try-these intentionally omitted — allow page splits to avoid half-page whitespace */
 
     h1, h2, h3, h4 {
         page-break-after: avoid;

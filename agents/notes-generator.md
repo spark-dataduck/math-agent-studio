@@ -94,20 +94,23 @@ Mention common mistakes and confusing points that students frequently get wrong 
 - "Try These" examples: 3-4 practice problems per concept
 
 **Format Guide:**
-- 8-11 pages
+- 8-11 pages / ~2,200-2,800 words total (NOT 3,200+)
+- Each concept section: ~500-650 words including all boxes and Try These
 - Color coding (navy = core concepts, red = warnings, orange = tips)
 - Use tables and diagrams extensively
 - Notation must be clear and precise
+- Practice Problems section: problems only, NO answer key (answers go in Quick Answers output)
 ```
 
 ### Step 3: Analyze Content Structure
 
 Identify key components from the source PDF:
 
-1. **Core Concepts** (2-4 major concepts)
+1. **Core Concepts** (3-4 major concepts with full box treatment)
    - What are the foundational ideas?
    - Which definitions are essential?
    - What theorems are introduced?
+   - **If >4 concepts:** merge minor ones or give them reduced treatment (heading + paragraph only, no Big Idea box)
 
 2. **Common Student Errors**
    - What misconceptions are typical?
@@ -252,19 +255,23 @@ Target: 2-4 major concepts spanning pages 2-9 (about 2-3 pages per concept).
 [Continue for all major concepts — typically 2-4]
 
 *** CRITICAL PAGE DENSITY RULES ***
-- Target 8-11 pages total (if you're generating 15+ pages, you have too many page breaks)
+- Target 8-11 pages total / ~2,200-2,800 words (if you're generating 15+ pages or 3,200+ words, CUT CONTENT)
 - Each concept (Big Idea + tables + traps + tips + Try These) spans ~2-3 pages, NOT 5-6 pages
-- Allow reasonable whitespace (18pt between sections), but aim for 60-80% page coverage
+- Allow reasonable whitespace (12pt between sections), but aim for 60-80% page coverage
 - Do NOT add `.page-break` before every box — only between major concepts
 - Let content flow: multiple boxes and tables per page is expected and desired
+- Big Idea boxes: prose only (NO bullet lists), 80-120 words
+- Each concept section MUST be at least 450 words (don't undershoot — fill pages with substance)
+- Max 3-4 concepts with full box treatment; minor concepts get heading + paragraph only
+- NO Answer Key section — answers go in [Quick Answers] output
 
 ════════════════════════════════════════════════════════════
-PAGES 10-11 — PRACTICE PROBLEMS: EXAM LEVEL
+PAGES 10-11 — PRACTICE PROBLEMS: EXAM LEVEL (problems only, NO answers)
 ════════════════════════════════════════════════════════════
 
 ## Practice Problems: Exam Level
 
-*Work through each problem, then check the Answer Key at the end.*
+*Work through each problem, then check the [Quick Answers] document for solutions.*
 
 ### Section A: Standard Exam Problems
 
@@ -323,12 +330,34 @@ This CSS defines all visual classes. Embed the entire contents in a `<style>` bl
 
 #### 5b. Generate the HTML document
 
-**CRITICAL PAGE COUNT TARGET: 8-11 pages total**
+**CRITICAL PAGE COUNT TARGET: 8-11 pages total (STRICT — not 12, not 15, not 17)**
 
-The original reference output is 11 pages with high information density. Structure your HTML to achieve similar density:
+The reference output is 11 pages with ~2,300 words. Structure your HTML to achieve similar density:
 - **Page 1:** Title page (dedicated, centered)
-- **Pages 2-9:** Concepts (typically 2-4 major concepts, each spanning 2-3 pages with ALL its boxes, tables, mnemonics, and Try These flowing together)
-- **Pages 10-11:** Practice Problems (Section A + Section B) + optional Answer Key
+- **Pages 2-9:** Concepts (3-4 major concepts, each spanning 2-3 pages with ALL its boxes, tables, mnemonics, and Try These flowing together)
+- **Pages 10-11:** Practice Problems (Section A + Section B) — NO Answer Key (answers go in the separate Quick Answers output)
+
+**Total word budget: ~2,200-2,800 words** (NOT 3,200+). If you're over 2,800 words, cut content.
+
+**Per-element word limits:**
+- Big Idea box: 80-120 words (4-6 sentences, NO bullet lists inside — use prose)
+- Mnemonic: 40-60 words (2-3 sentences)
+- Common Trap box: 40-60 words
+- Useful Tip box: 40-60 words
+- Try These: max 3 problems per concept, each answer 20-40 words
+- Definition table: 4-6 rows, include "In Plain Terms" column for accessibility
+
+**Per-concept MINIMUM: 450 words.** Each concept section (Big Idea + table + mnemonic + trap + tip + Try These) must be at least 450 words. If a concept section feels thin, add richer examples in the definition table, more detail in the mnemonic, or a longer Try These solution walkthrough.
+- Definition table: max 4 rows per table
+
+**Concept count rules:**
+- Target 3-4 major concepts with full box treatment (Big Idea + table + traps + tips + Try These)
+- If the chapter has 5+ concepts, merge smaller ones or give minor concepts reduced treatment (just a heading + paragraph, no Big Idea box)
+
+**CSS class rules:**
+- Use ONLY classes defined in notes-base.css: `.big-idea`, `.common-trap`, `.useful-tip`, `.try-these`, `.title-page`, `.page-break`, `.no-break`, `.practice-problems`, `.math-display`, `.box-title`, `.section-divider`
+- Do NOT invent custom CSS classes (no `.mnemonic`, `.quick-tip`, `.argument-form`, etc.)
+- Do NOT add custom `<style>` blocks or inline styles beyond what notes-base.css provides
 
 **Avoid excessive page breaks** — use `.page-break` ONLY between major concepts, not before every box or section. Let Big Idea + Definition Table + Mnemonics + Common Trap + Useful Tip + Try These all flow within one concept's `<div>`.
 
@@ -386,7 +415,7 @@ Create a complete HTML file with this structure:
             <p>To prove invalid: only need ONE counterexample. To prove valid: must show it works in every scenario...</p>
         </div>
 
-        <div class="try-these no-break">
+        <div class="try-these">
             <div class="box-title">Try These! 📝</div>
             <ol>
                 <li>Is this valid? "P or Q. Not Q. Therefore P."<br><strong>Answer:</strong> VALID (Disjunctive Syllogism)...</li>
@@ -423,8 +452,10 @@ Create a complete HTML file with this structure:
     </div>
 
     <!-- Practice Problems (final pages) — always use .page-break to start new section -->
+    <!-- NO Answer Key — answers go in the separate [Quick Answers] output -->
     <div class="page-break practice-problems">
         <h2>Practice Problems: Exam Level</h2>
+        <p><em>Work through each problem, then check the [Quick Answers] document for solutions.</em></p>
         <h3>Section A: Standard Exam Problems</h3>
         ...
         <h3>Section B: Competition-Style Problems 🏆</h3>
@@ -439,11 +470,13 @@ Create a complete HTML file with this structure:
 **Page breaks and density (CRITICAL — target 8-11 pages total):**
 - The `<title>` tag content appears in the PDF header (italic, auto-populated by Chromium)
 - Use `.title-page` for the dedicated first page only — `min-height:100vh` naturally fills the page
-- Do NOT add `.page-break` on the first content `<div>` after `.title-page` (would create blank page)
-- **ONLY use `.page-break` between major concepts** (typically 2-4 in a chapter) — NOT before every box/section
+- Do NOT add `.page-break` on the first content `<div>` after `.title-page` (would create blank page 2)
+- **ONLY use `.page-break` between major concepts** (typically 3-4 in a chapter) — NOT before every box/section
 - Let content flow naturally within a concept — Big Idea + tables + traps + tips + Try These can all be on the same page or flow across 2 pages
 - **Target: ~2-3 pages per concept** including all its boxes and examples
 - The agent CSS already handles orphan/widow control — don't manually force breaks everywhere
+- **NO Answer Key section** — Practice Problems are problems only. Answers go in the separate [Quick Answers] output.
+- **NO custom CSS classes** — use only classes from notes-base.css. Do not add `.mnemonic`, `.quick-tip`, `.argument-form` or any invented classes.
 
 **Emojis in box titles (REQUIRED for visual scanning):**
 - Big Idea: `<div class="box-title">THE BIG IDEA 💡</div>` (use the HTML entity &#x1F4A1; or Unicode emoji)
@@ -489,7 +522,7 @@ These are all automatic — do NOT try to set them in HTML:
 - **Colors**: Pastel fills with thin 0.5pt accent borders
 - **Header**: Italic text from `<title>` (Chromium built-in)
 - **Footer**: Copyright left, "- N -" page number center
-- **Spacing**: 18pt between major sections (via CSS margins)
+- **Spacing**: 12pt between major sections (via CSS margins)
 - **Orphan/widow control**: CSS `widows: 2; orphans: 2;`
 
 ### Step 6: Generate Output Path
@@ -526,13 +559,26 @@ if [ -f "$output_path" ]; then
         exit 1
     fi
 
-    echo "SUCCESS: Generated notes ($file_size bytes)"
+    # Count actual pages using pdfinfo or strings fallback
+    page_count=$(pdfinfo "$output_path" 2>/dev/null | grep "^Pages:" | awk '{print $2}')
+    if [ -z "$page_count" ]; then
+        # Fallback: count page markers in PDF binary
+        page_count=$(strings "$output_path" | grep -c "/Type /Page[^s]" || echo "unknown")
+    fi
+
+    echo "SUCCESS: Generated notes ($file_size bytes, $page_count pages)"
+    if [ "$page_count" != "unknown" ] && [ "$page_count" -gt 11 ]; then
+        echo "WARNING: Page count ($page_count) exceeds 11-page target. Consider reducing content."
+    fi
+
     echo "$output_path"
 else
     echo "ERROR: Output file not found at $output_path"
     exit 1
 fi
 ```
+
+**IMPORTANT:** Do NOT estimate page count from HTML length. Always verify actual PDF page count after generation. If the page count exceeds 11, the content is too verbose — reduce word count and regenerate.
 
 ### Step 9: Return to Orchestrator
 

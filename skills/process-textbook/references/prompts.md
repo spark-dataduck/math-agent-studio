@@ -27,23 +27,28 @@ Mention common mistakes and confusing points that students frequently get wrong 
 - Common Traps (red warning): Frequently made mistakes
 - Useful Tips (orange box): Helpful tips for problem-solving
 - "Try These" examples: 3-4 practice problems per concept
-- Practice Problems: Exam Level (final 2 pages)
+- Practice Problems: Exam Level (final 2 pages, problems only — NO answer key)
   - Section A: Standard Exam Problems (6 problems, progressive difficulty)
   - Section B: Competition-Style Problems 🏆 (4-5 problems)
     - Diverse types: Knights & Knaves, Liar Puzzles, Number Theory, Chain Arguments, AMC-style
   - Problems test ALL concepts from the notes
-  - Header: "Work through each problem, then check the Answer Key at the end."
+  - Header: "Work through each problem, then check the [Quick Answers] document for solutions."
 
 **Format Guide:**
-- **8-11 pages total** (STRICT target — not 15-20 pages)
+- **8-11 pages total** (STRICT target — not 12, not 15, not 17)
+- **Total content: ~2,200-2,800 words** (NOT 3,200+). If over 2,800 words, cut content.
+- **Each concept section: ~500-650 words** including all boxes and Try These
 - Page 1: Title page (dedicated full page, no content boxes)
-- Pages 2-9: Concepts with inline Try These (typically 2-4 major concepts, each spanning 2-3 pages)
-- Pages 10-11: Practice Problems: Exam Level + optional Answer Key
+- Pages 2-9: Concepts with inline Try These (3-4 major concepts, each spanning 2-3 pages)
+- Pages 10-11: Practice Problems: Exam Level — **problems only, NO answer key** (answers go in Quick Answers output)
 - Color coding: pastel tints with accent-color borders (navy = core concepts, red = warnings, orange = tips)
 - Use tables and diagrams extensively
 - Notation must be clear and precise
 - **Information density:** Each concept page should have ~60-80% text/content coverage (not 30-40%). Allow reasonable whitespace between sections, but don't waste half-pages unnecessarily.
 - **Box titles MUST include emojis:** THE BIG IDEA 💡, Common Trap ⚠️, Useful Tip 💡, Try These! 📝, mnemonics can use 🧠 or 🎯
+- **Per-element word limits:** Big Idea box 80-120 words (prose, no bullet lists), Mnemonic 40-60 words, Common Trap 40-60 words, Useful Tip 40-60 words, Try These ≤3 problems with 20-40 word answers each, Definition table 4-6 rows with "In Plain Terms" column
+- **Per-concept MINIMUM: 450 words** — each concept section must have enough substance to fill ~2 pages. If thin, add richer table rows, longer mnemonic, or more detailed Try These solutions.
+- **Concept limit:** 3-4 major concepts get full box treatment. If 5+ concepts, give minor ones just a heading + paragraph (no Big Idea box).
 ```
 
 ### Expected Output Structure:
@@ -79,9 +84,10 @@ Pages 6-9: Additional Concepts (if needed)
   - Aim for ~2-3 pages per concept including all boxes/tables/examples
   - **Target density: 60-80% of page filled with content** (not 30-40% with massive whitespace)
 
-Pages 10-11: Practice Problems: Exam Level
+Pages 10-11: Practice Problems: Exam Level (problems only, NO answer key)
   - Section A: Standard Exam Problems (6 problems)
   - Section B: Competition-Style Problems 🏆 (4-5 problems)
+  - NO Answer Key — answers go in the separate [Quick Answers] output
 ```
 
 ---
