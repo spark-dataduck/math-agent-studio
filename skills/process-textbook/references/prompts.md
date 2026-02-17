@@ -120,6 +120,11 @@ Create problems in the style of the Putnam Math Competition as much as possible.
 - Concise and clear problem statements
 - Include diagrams where necessary
 - Mix computational problems and proof problems appropriately
+
+**Format as HTML** using `content-base.css` classes:
+- `.title-header` for compact header, `.problem-block` for each problem
+- `.difficulty` for star/trophy indicators, `.section-header` for section titles
+- `.page-break` before Section B only
 ```
 
 ### Expected Output Structure:
@@ -189,6 +194,10 @@ Create a quick answer key so students can check answers at a glance.
 - Clear and concise answers
 - Multi-part problems show answers per part (e.g., 1a, 1b)
 - Proof problems marked as "See detailed solution"
+
+**Format as HTML** using `content-base.css` classes:
+- `.title-header` for compact header, `.answer-table` for the answer table
+- `.problem-num` for bold problem numbers, no page breaks
 ```
 
 ### Expected Output Structure:
@@ -242,6 +251,11 @@ Include both solutions and answers together. If there are multiple approaches to
 - Explain the reasoning behind each step
 - Mix formulas and text appropriately
 - Highlight important insights
+
+**Format as HTML** using `content-base.css` classes:
+- `.title-header` for compact header, `.solution-block` for each problem
+- `.answer-line` for bold answers, `.warning-box` for common mistakes, `.tip-box` for insights
+- `.page-break` before Section B solutions only
 ```
 
 ### Expected Output Structure:
@@ -335,8 +349,14 @@ Write a YouTube script in a friendly, natural tutor tone for approximately 10 mi
 **Requirements:**
 - Include timing markers [00:30], [02:00], etc.
 - Natural transition phrases
-- Include visual cue hints (e.g., "[show formula on screen]")
+- Include visual cue hints (e.g., "[Screen: show formula]")
 - Ask students questions (engagement prompts)
+- ALL content in English (no Korean text)
+
+**Format as HTML** using `content-base.css` classes:
+- `.title-header` for branding header, `.script-section` for each timed section
+- `.timing-marker` for `[MM:SS]` badges, `.screen-direction` for production cues
+- `.script-dialogue` for spoken content, `.production-notes` for end-of-script reference
 ```
 
 ### Expected Output Structure:

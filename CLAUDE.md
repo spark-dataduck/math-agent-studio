@@ -143,11 +143,11 @@ Each generator agent is a specialized Task that:
 4. Returns output path to orchestrator
 
 **Agent Files**:
-- `agents/notes-generator.md` - Comprehensive notes (8-11 pages: HTML→Playwright PDF pipeline with KaTeX math, pastel boxes via CSS classes)
-- `agents/script-generator.md` - 10-minute YouTube script (conversational English, "Just Watch Math" style)
-- `agents/problems-generator.md` - 10 problems (6 standard + 4 Putnam-level)
-- `agents/answers-generator.md` - Compact answer key (1-page table)
-- `agents/explanations-generator.md` - Step-by-step solutions (2-3 pages)
+- `agents/notes-generator.md` - Comprehensive notes (8-11 pages: HTML→Playwright PDF pipeline with KaTeX math, `notes-base.css`)
+- `agents/script-generator.md` - 10-minute YouTube script (HTML→Playwright pipeline, `content-base.css`, English only)
+- `agents/problems-generator.md` - 10 problems (HTML→Playwright pipeline, `content-base.css`, 4-6 pages)
+- `agents/answers-generator.md` - Compact answer key (HTML→Playwright pipeline, `content-base.css`, 1-page table)
+- `agents/explanations-generator.md` - Step-by-step solutions (HTML→Playwright pipeline, `content-base.css`, 2-3 pages)
 
 **Important**: Agents do NOT communicate with each other directly. All coordination happens through the workflow-orchestrator.
 
@@ -338,6 +338,7 @@ math-agent-studio/
 │       ├── SKILL.md          # Entry point (user-invocable)
 │       ├── assets/
 │       │   ├── notes-base.css    # CSS classes for notes HTML
+│       │   ├── content-base.css  # CSS classes for problems/answers/explanations/script
 │       │   └── katex/            # Bundled KaTeX (CSS + JS + fonts)
 │       └── references/
 │           ├── prompts.md    # AI prompts ⭐
@@ -383,6 +384,6 @@ math-agent-studio/
 ## Version Information
 
 - **Current Version**: 1.0.0
-- **Last Updated**: 2026-02-13
+- **Last Updated**: 2026-02-17
 - **Claude Code Minimum**: 2.1.0
 - **Python Requirement**: 3.9+

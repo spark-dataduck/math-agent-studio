@@ -10,11 +10,10 @@ version: 1.0.0
 allowed-tools:
   - Read
   - Write(reference_outputs/**)
-  - Write(/tmp/generate_*)
+  - Write(/tmp/math-agent-studio-*)
   - Bash(python3 scripts/*)
-  - Bash(python3 /tmp/generate_*)
-  - Bash(pip install reportlab)
-  - Bash(pip3 install reportlab)
+  - Bash(pip install playwright)
+  - Bash(playwright install chromium)
   - Bash(stat *)
   - Bash(file *)
   - Bash(wc *)

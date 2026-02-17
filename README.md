@@ -222,11 +222,16 @@ User → SKILL (entry point)
 ```
 math-agent-studio/
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest
+│   ├── plugin.json              # Plugin metadata
+│   └── marketplace.json         # Marketplace distribution config
 │
 ├── skills/
 │   └── process-textbook/
 │       ├── SKILL.md             # User-facing entry point
+│       ├── assets/
+│       │   ├── notes-base.css   # CSS for notes (full-page title, pastel boxes)
+│       │   ├── content-base.css # CSS for problems/answers/explanations/script
+│       │   └── katex/           # Bundled KaTeX (CSS + JS + fonts)
 │       └── references/
 │           ├── prompts.md       # AI prompts (5 types)
 │           ├── output-formats.md # Format specifications
@@ -242,7 +247,8 @@ math-agent-studio/
 │
 ├── scripts/
 │   ├── validate_pdf.py          # PDF validation
-│   └── generate_output_path.py  # Filename generator
+│   ├── generate_output_path.py  # Filename generator
+│   └── generate_pdf.py          # HTML→PDF via Playwright (KaTeX math)
 │
 ├── reference_source/            # Example input PDFs
 ├── reference_outputs/           # Example output PDFs
@@ -308,10 +314,11 @@ Example files:
    - Updates state after each step
    - Handles errors and retries
 
-3. **Generator Agents**
+3. **Generator Agents** (HTML→Playwright PDF pipeline)
    - Each agent reads relevant inputs
-   - Applies AI prompts
-   - Generates formatted PDF output
+   - Generates structured HTML with embedded CSS and KaTeX math
+   - Converts to PDF via Playwright/Chromium (`scripts/generate_pdf.py`)
+   - Validates output quality (file size, page count)
    - Returns path to orchestrator
 
 4. **Completion**
@@ -421,10 +428,11 @@ python3 scripts/generate_output_path.py "Notes" "reference_source/test.pdf"
 To add a new output type (e.g., flashcards):
 
 1. Create prompt in `skills/process-textbook/references/prompts.md`
-2. Create agent file: `agents/flashcards-generator.md`
-3. Register agent in `.claude-plugin/plugin.json`
-4. Update orchestrator to include new step
-5. Update SKILL.md to document new output
+2. Create agent file: `agents/flashcards-generator.md` (auto-discovered)
+3. Add CSS classes to `skills/process-textbook/assets/content-base.css`
+4. Add mode preset to `scripts/generate_pdf.py`
+5. Update orchestrator to include new step
+6. Update SKILL.md to document new output
 
 ### Contributing
 
@@ -451,10 +459,8 @@ Guidelines:
 
 ### Python Packages
 
-No external packages required. Scripts use only standard library:
-- `pathlib` - File path handling
-- `sys` - Exit codes and arguments
-- `os` - File operations
+- **Playwright** - PDF generation via headless Chromium (auto-installed on first run)
+- Standard library only for utility scripts (`validate_pdf.py`, `generate_output_path.py`)
 
 ### Claude Code Permissions
 
@@ -503,5 +509,5 @@ The skill requests these permissions:
 ---
 
 **Version**: 1.0.0
-**Last Updated**: 2026-02-13
+**Last Updated**: 2026-02-17
 **Status**: Production Ready

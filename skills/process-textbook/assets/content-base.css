@@ -1,0 +1,421 @@
+/*
+ * content-base.css — Shared CSS for problems, answers, explanations, and script agents
+ *
+ * Each agent reads this file and embeds it in a <style> block.
+ * Shares base typography with notes-base.css but adds content-specific classes.
+ *
+ * Color palette (same as notes-base.css):
+ *   Navy/Core:    fill #E8EDF3, border #003366
+ *   Pink/Warning: fill #FDE8E8, border #CC0000
+ *   Orange/Tip:   fill #FFF3E0, border #FF8800
+ *   Green/Correct: fill #E8F5E9, border #2E7D32
+ *   Gray/Neutral: fill #F5F5F5, border #999
+ */
+
+/* ── Base Typography ────────────────────────────── */
+
+body {
+    font-family: 'Times New Roman', 'Times', serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    padding: 0 1in;
+    margin: 0;
+    widows: 2;
+    orphans: 2;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+    color: #000;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
+    color: #1a1a1a;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 10pt;
+    margin-bottom: 6pt;
+    color: #333;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    color: #444;
+}
+
+/* ── Title Header (compact, not full-page) ─────── */
+
+.title-header {
+    text-align: center;
+    padding: 24pt 0 16pt 0;
+    margin-bottom: 16pt;
+    border-bottom: 2px solid #003366;
+}
+
+.title-header h1 {
+    font-size: 22pt;
+    margin-top: 0;
+    margin-bottom: 6pt;
+}
+
+.title-header .subtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    color: #333;
+    margin-bottom: 4pt;
+}
+
+.title-header .meta {
+    font-size: 10pt;
+    color: #666;
+    font-style: italic;
+}
+
+/* ── Page Breaks ────────────────────────────────── */
+
+.page-break {
+    page-break-before: always;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
+
+/* ── Problem Block ──────────────────────────────── */
+
+.problem-block {
+    border-left: 3pt solid #003366;
+    padding: 12pt 16pt;
+    margin: 16pt 0;
+    background-color: #FAFBFC;
+    page-break-inside: avoid;
+}
+
+.problem-block .problem-number {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13pt;
+    color: #003366;
+    margin-bottom: 6pt;
+}
+
+.problem-block .problem-text {
+    margin: 6pt 0;
+}
+
+.problem-block ol, .problem-block ul {
+    margin: 6pt 0;
+    padding-left: 20pt;
+}
+
+/* ── Difficulty Indicators ──────────────────────── */
+
+.difficulty {
+    font-size: 10pt;
+    color: #666;
+    margin-left: 8pt;
+}
+
+/* ── Section Header ─────────────────────────────── */
+
+.section-header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+    font-weight: bold;
+    color: #003366;
+    border-bottom: 1.5pt solid #003366;
+    padding-bottom: 4pt;
+    margin-top: 20pt;
+    margin-bottom: 12pt;
+}
+
+/* ── Answer Table ───────────────────────────────── */
+
+.answer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10pt;
+}
+
+.answer-table th {
+    background-color: #003366;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 10.5pt;
+    text-align: left;
+    padding: 6pt 10pt;
+    border: 0.5pt solid #003366;
+}
+
+.answer-table td {
+    padding: 5pt 10pt;
+    border: 0.5pt solid #ccc;
+    vertical-align: top;
+}
+
+.answer-table tr:nth-child(even) td {
+    background-color: #F5F5F5;
+}
+
+.answer-table .problem-num {
+    font-weight: bold;
+    text-align: center;
+    width: 80pt;
+    white-space: nowrap;
+}
+
+/* ── Solution Block ─────────────────────────────── */
+
+.solution-block {
+    margin: 16pt 0;
+    padding-bottom: 12pt;
+    border-bottom: 0.5pt solid #ddd;
+}
+
+.solution-block .problem-restate {
+    font-style: italic;
+    color: #444;
+    margin-bottom: 8pt;
+    padding: 8pt 12pt;
+    background-color: #F8F9FA;
+    border-radius: 3px;
+}
+
+.solution-block .answer-line {
+    font-weight: bold;
+    color: #003366;
+    font-size: 12pt;
+    margin: 8pt 0;
+    padding: 6pt 12pt;
+    background-color: #E8EDF3;
+    border-radius: 3px;
+}
+
+.solution-block .step {
+    margin: 6pt 0 6pt 16pt;
+}
+
+.solution-block .step-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.solution-block .method-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #003366;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+}
+
+/* ── Warning Box (same colors as notes common-trap) */
+
+.warning-box {
+    background-color: #FDE8E8;
+    border: 0.5pt solid #CC0000;
+    border-radius: 4px;
+    padding: 12pt 16pt;
+    margin: 10pt 0;
+    page-break-inside: avoid;
+}
+
+.warning-box .box-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #CC0000;
+    margin-bottom: 6pt;
+}
+
+.warning-box p {
+    margin: 4pt 0;
+}
+
+/* ── Tip Box (same colors as notes useful-tip) ──── */
+
+.tip-box {
+    background-color: #FFF3E0;
+    border: 0.5pt solid #FF8800;
+    border-radius: 4px;
+    padding: 12pt 16pt;
+    margin: 10pt 0;
+    page-break-inside: avoid;
+}
+
+.tip-box .box-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #FF8800;
+    margin-bottom: 6pt;
+}
+
+.tip-box p {
+    margin: 4pt 0;
+}
+
+/* ── Timing Marker (for script) ─────────────────── */
+
+.timing-marker {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #003366;
+    background-color: #E8EDF3;
+    padding: 2pt 8pt;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 6pt;
+}
+
+/* ── Screen Direction (for script) ──────────────── */
+
+.screen-direction {
+    font-style: italic;
+    color: #666;
+    background-color: #F5F5F5;
+    padding: 4pt 12pt;
+    margin: 6pt 0;
+    border-left: 2pt solid #999;
+    font-size: 10pt;
+}
+
+/* ── Script Section ─────────────────────────────── */
+
+.script-section {
+    margin: 16pt 0;
+    padding-bottom: 12pt;
+    border-bottom: 1pt solid #ddd;
+}
+
+.script-section .section-timing {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13pt;
+    color: #003366;
+    margin-bottom: 8pt;
+}
+
+.script-dialogue {
+    margin: 8pt 0;
+    line-height: 1.8;
+}
+
+/* ── Production Notes (for script) ──────────────── */
+
+.production-notes {
+    background-color: #F5F5F5;
+    border: 0.5pt solid #ccc;
+    border-radius: 4px;
+    padding: 12pt 16pt;
+    margin: 16pt 0;
+    font-size: 10pt;
+}
+
+.production-notes h3 {
+    font-size: 12pt;
+    color: #444;
+    margin-top: 0;
+}
+
+/* ── Tables (general) ──────────────────────────── */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 10.5pt;
+    page-break-inside: avoid;
+}
+
+th {
+    background-color: #E8EDF3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 11pt;
+    text-align: left;
+    padding: 8pt 12pt;
+    border: 0.5pt solid #003366;
+}
+
+td {
+    padding: 8pt 12pt;
+    border: 0.5pt solid #ccc;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background-color: #F5F5F5;
+}
+
+/* ── Lists ──────────────────────────────────────── */
+
+ol, ul {
+    margin: 8pt 0;
+    padding-left: 24pt;
+}
+
+li {
+    margin: 4pt 0;
+}
+
+/* ── Section Divider ────────────────────────────── */
+
+.section-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20pt 0;
+}
+
+/* ── Math (KaTeX) ───────────────────────────────── */
+
+.math-display {
+    margin: 12pt 0;
+    text-align: center;
+}
+
+/* ── Print Rules ────────────────────────────────── */
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+
+    .no-break {
+        page-break-inside: avoid;
+    }
+
+    .problem-block, .solution-block, .warning-box, .tip-box, table {
+        page-break-inside: avoid;
+    }
+
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+}
