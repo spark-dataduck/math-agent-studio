@@ -206,9 +206,9 @@ Waiting for user to confirm chapter name.
 - [ ] Step 2c: Explanations (Pending)
 
 ## Artifacts Generated
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (1.2 MB)
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Script] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (523 KB)
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Problems] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (387 KB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (1.2 MB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Script] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (523 KB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Problems] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (387 KB)
 
 ## Current Step Details
 **Step**: 2a (Problems)
@@ -243,10 +243,10 @@ Ready to resume from Step 2b when restarted.
 - [!] Step 2c: Explanations (ERROR @ 14:52:10)
 
 ## Artifacts Generated
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (1.2 MB)
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Script] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (523 KB)
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Problems] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (387 KB)
-- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/reference_outputs/[Quick Answers] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (156 KB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (1.2 MB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Script] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (523 KB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Problems] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (387 KB)
+- `/Users/sundoopark/Documents/personal_projects/math-agent-studio/outputs/[Quick Answers] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf` (156 KB)
 
 ## Current Step Details
 **Step**: 2c (Explanations)

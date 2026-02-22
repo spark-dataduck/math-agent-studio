@@ -317,7 +317,7 @@ Provide real-time updates to the main skill:
 ⏱️  Step 1 in progress (2m 30s elapsed)...
 
 ✅ Step 1 complete!
-   Output: reference_outputs/[Notes] 1.1 Deductive Reasoning [How To Prove It].pdf
+   Output: outputs/[Notes] 1.1 Deductive Reasoning [How To Prove It].pdf
    Size: 1.2 MB
    Duration: 5m 23s
 
@@ -404,19 +404,19 @@ Chapter: 1.1 Deductive Reasoning and Logical Connectives [How To Prove It]
 
 Generated Outputs:
 1. [Notes] - Comprehensive study notes (1.2 MB, 9 pages)
-   📄 reference_outputs/[Notes] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
+   📄 outputs/[Notes] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 
 2. [Script] - 10-minute YouTube script (523 KB, 6 pages)
-   📄 reference_outputs/[Script] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
+   📄 outputs/[Script] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 
 3. [Problems] - 10 practice problems (387 KB, 5 pages)
-   📄 reference_outputs/[Problems] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
+   📄 outputs/[Problems] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 
 4. [Quick Answers] - Answer key (156 KB, 1 page)
-   📄 reference_outputs/[Quick Answers] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
+   📄 outputs/[Quick Answers] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 
 5. [Explanations] - Detailed solutions (445 KB, 3 pages)
-   📄 reference_outputs/[Explanations] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
+   📄 outputs/[Explanations] 1.1 Deductive Reasoning and Logical Connectives [How To Prove It].pdf
 
 Total Size: 2.7 MB
 Total Time: 18m 42s

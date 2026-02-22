@@ -6,7 +6,7 @@ color: cyan
 tools: ["Read", "Write", "Bash"]
 allowed-tools:
   - Read
-  - Write(reference_outputs/**)
+  - Write(outputs/**)
   - Write(/tmp/math-agent-studio-*)
   - Bash(python3 scripts/generate_pdf.py *)
   - Bash(python3 scripts/generate_output_path.py *)

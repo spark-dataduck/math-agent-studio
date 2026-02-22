@@ -132,7 +132,7 @@ Examples:
 [Script] 1.1 Deductive Reasoning [How To Prove It].pdf
 ```
 
-**Location**: All outputs go to `reference_outputs/` directory.
+**Location**: All outputs go to `outputs/` directory.
 
 ## Generator Agents
 
@@ -356,7 +356,8 @@ math-agent-studio/
 │   ├── generate_output_path.py
 │   └── generate_pdf.py       # HTML→PDF via Playwright
 ├── reference_source/         # Example input PDFs
-└── reference_outputs/        # Example output PDFs (for testing)
+├── reference_outputs/        # Example output PDFs (for testing)
+└── outputs/                  # Generated output PDFs (runtime)
 ```
 
 ⭐ = Most frequently modified files

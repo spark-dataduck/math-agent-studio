@@ -9,7 +9,7 @@ trigger_phrases:
 version: 1.0.0
 allowed-tools:
   - Read
-  - Write(reference_outputs/**)
+  - Write(outputs/**)
   - Write(/tmp/math-agent-studio-*)
   - Bash(python3 scripts/*)
   - Bash(pip install playwright)
@@ -124,7 +124,7 @@ Display summary and confirm:
 │    4. [Quick Answers] - Answer key                  │
 │    5. [Explanations] - Detailed solutions           │
 │                                                     │
-│  Output directory: reference_outputs/               │
+│  Output directory: outputs/               │
 │  Estimated time: 15-25 minutes                      │
 └─────────────────────────────────────────────────────┘
 
@@ -236,7 +236,7 @@ If Yes: Continue to initialization
 
 ```markdown
 1. Verify all outputs generated
-   Check that all 5 files exist in reference_outputs/
+   Check that all 5 files exist in outputs/
 
 2. Update final state
    Mark workflow status as COMPLETED in .local.md
@@ -249,7 +249,7 @@ If Yes: Continue to initialization
 
    Chapter: [Chapter Name]
    Total Time: [duration]
-   Output Location: reference_outputs/
+   Output Location: outputs/
 
    Generated Files:
    ─────────────────────────────────────────────────────
@@ -257,27 +257,27 @@ If Yes: Continue to initialization
    1. 📄 [Notes] [chapter].pdf
       Comprehensive study notes
       Size: 1.2 MB | Pages: 9
-      Path: reference_outputs/[Notes] [chapter].pdf
+      Path: outputs/[Notes] [chapter].pdf
 
    2. 🎬 [Script] [chapter].pdf
       10-minute YouTube script
       Size: 523 KB | Pages: 6
-      Path: reference_outputs/[Script] [chapter].pdf
+      Path: outputs/[Script] [chapter].pdf
 
    3. 📝 [Problems] [chapter].pdf
       10 practice problems (6 standard + 4 competition)
       Size: 387 KB | Pages: 5
-      Path: reference_outputs/[Problems] [chapter].pdf
+      Path: outputs/[Problems] [chapter].pdf
 
    4. ✅ [Quick Answers] [chapter].pdf
       Quick answer key
       Size: 156 KB | Pages: 1
-      Path: reference_outputs/[Quick Answers] [chapter].pdf
+      Path: outputs/[Quick Answers] [chapter].pdf
 
    5. 📖 [Explanations] [chapter].pdf
       Detailed step-by-step solutions
       Size: 445 KB | Pages: 3
-      Path: reference_outputs/[Explanations] [chapter].pdf
+      Path: outputs/[Explanations] [chapter].pdf
 
    ═══════════════════════════════════════════════════════
 
@@ -535,13 +535,13 @@ Inputs:
 
 During execution, this skill creates/updates:
 - `.claude/workflow-textbook-processing.local.md` (state file)
-- `reference_outputs/[Notes] [chapter].pdf`
-- `reference_outputs/[Script] [chapter].pdf`
-- `reference_outputs/[Problems] [chapter].pdf`
-- `reference_outputs/[Quick Answers] [chapter].pdf`
-- `reference_outputs/[Explanations] [chapter].pdf`
+- `outputs/[Notes] [chapter].pdf`
+- `outputs/[Script] [chapter].pdf`
+- `outputs/[Problems] [chapter].pdf`
+- `outputs/[Quick Answers] [chapter].pdf`
+- `outputs/[Explanations] [chapter].pdf`
 
-All output files are placed in the `reference_outputs/` directory
+All output files are placed in the `outputs/` directory
 parallel to the source PDF's `reference_source/` directory.
 
 ## Dependencies

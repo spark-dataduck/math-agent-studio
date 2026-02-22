@@ -6,7 +6,7 @@ color: purple
 tools: ["Read", "Write", "Bash"]
 allowed-tools:
   - Read
-  - Write(reference_outputs/**)
+  - Write(outputs/**)
   - Write(/tmp/math-agent-studio-*)
   - Bash(python3 scripts/generate_pdf.py *)
   - Bash(python3 scripts/generate_output_path.py *)
@@ -32,7 +32,7 @@ Required inputs:
 - chapter_name: "1.1 Deductive Reasoning"
 
 Optional inputs:
-- output_dir: /path/to/reference_outputs/
+- output_dir: /path/to/outputs/
 ```
 
 ## Output Specification

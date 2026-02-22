@@ -6,7 +6,7 @@ color: green
 tools: ["Read", "Write", "Bash"]
 allowed-tools:
   - Read
-  - Write(reference_outputs/**)
+  - Write(outputs/**)
   - Write(/tmp/math-agent-studio-*)
   - Bash(python3 scripts/generate_pdf.py *)
   - Bash(python3 scripts/generate_output_path.py *)
@@ -40,14 +40,14 @@ Required inputs:
 - chapter_name: "1.1 Deductive Reasoning" (parsed from filename)
 
 Optional inputs:
-- output_dir: /path/to/reference_outputs/ (default: parallel to source)
+- output_dir: /path/to/outputs/ (default: parallel to source)
 ```
 
 ## Output Specification
 
 ```markdown
 Output:
-- path_to_notes: /path/to/reference_outputs/[Notes] chapter-name.pdf
+- path_to_notes: /path/to/outputs/[Notes] chapter-name.pdf
 - file_size: > 100 KB (typically 200-600 KB)
 - page_count: 8-11 pages
 - format: PDF with UTF-8 encoding
@@ -534,7 +534,7 @@ python3 scripts/generate_output_path.py "Notes" "$pdf_path"
 
 This returns the standardized output path:
 ```
-reference_outputs/[Notes] chapter-name.pdf
+outputs/[Notes] chapter-name.pdf
 ```
 
 ### Step 7: Verify PDF Output
@@ -689,10 +689,10 @@ Process:
   7. Add Useful Tip: "Truth tables solve everything"
   8. Generate "Try These" problems (4 per concept)
   9. Format as 9-page PDF with colored boxes
-  10. Write to reference_outputs/[Notes] 1.1 Dedeuctive...pdf
+  10. Write to outputs/[Notes] 1.1 Dedeuctive...pdf
 
 Output:
-  path_to_notes: "reference_outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf"
+  path_to_notes: "outputs/[Notes] 1.1 Dedeuctive Reasoning and Logical Connectives [How To Prove It].pdf"
   file_size: 1245678 bytes (1.2 MB)
   page_count: 9
   status: "success"

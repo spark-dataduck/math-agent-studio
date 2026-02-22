@@ -2,11 +2,11 @@
 """
 Output Path Generator
 Generates standardized output filenames following the pattern:
-    reference_outputs/[Type] Section Title [Textbook].pdf
+    outputs/[Type] Section Title [Textbook].pdf
 
 Example:
     Input: reference_source/1.1 Foo [Book].pdf
-    Output: reference_outputs/[Notes] 1.1 Foo [Book].pdf
+    Output: outputs/[Notes] 1.1 Foo [Book].pdf
 """
 import sys
 from pathlib import Path
@@ -25,7 +25,7 @@ def generate_output_path(source_pdf_path: str, output_type: str) -> str:
 
     Example:
         >>> generate_output_path("reference_source/1.1 Foo [Book].pdf", "Notes")
-        'reference_outputs/[Notes] 1.1 Foo [Book].pdf'
+        'outputs/[Notes] 1.1 Foo [Book].pdf'
     """
     source_path = Path(source_pdf_path)
 
@@ -34,7 +34,7 @@ def generate_output_path(source_pdf_path: str, output_type: str) -> str:
 
     # Determine output directory (parallel to reference_source)
     source_dir = source_path.parent
-    output_dir = source_dir.parent / "reference_outputs"
+    output_dir = source_dir.parent / "outputs"
 
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
